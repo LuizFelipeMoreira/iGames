@@ -11,6 +11,7 @@ import {
 import { PiShoppingCartBold } from 'react-icons/pi';
 import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
+import Bag from '../ProductBag/ProductBag';
 
 const Header = () => {
   return (
@@ -36,6 +37,7 @@ const Header = () => {
           </Icon>
         </Navigation>
       </HeaderContent>
+      <Bag />
     </HeaderContainer>
   );
 };

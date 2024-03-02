@@ -8,19 +8,23 @@ import {
   TitleWrapper,
   Tittle,
 } from '../styles/pages/Home';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { TotalGameListAPI } from '../API/api';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { register } from 'swiper/element/bundle';
-import { Card } from '../components/Card/Style';
+
 import GameCard from '../components/Card/Card';
 
 register();
 
 const Home = () => {
   const [gameList, setGameList] = React.useState(null);
+  const [openBag, setOpenBag] = React.useState(false);
+
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
 
   useEffect(() => {
