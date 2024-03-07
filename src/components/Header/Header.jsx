@@ -13,7 +13,7 @@ import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
 import Bag from '../ProductBag/ProductBag';
 
-const Header = () => {
+const Header = ({ setOpenBag, openBag }) => {
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -32,12 +32,16 @@ const Header = () => {
             <CgProfile size={26} fontWeight={'bold'} />
           </Icon>
           <Icon>
-            <PiShoppingCartBold size={26} fontWeight={'bold'} />
+            <PiShoppingCartBold
+              size={26}
+              fontWeight={'bold'}
+              onClick={() => setOpenBag(true)}
+            />
             <ItemQuantity>0</ItemQuantity>
           </Icon>
+          {openBag && <Bag setOpenBag={setOpenBag} />}
         </Navigation>
       </HeaderContent>
-      <Bag />
     </HeaderContainer>
   );
 };

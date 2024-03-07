@@ -22,16 +22,15 @@ export const CardContent = styled.div`
 export const CardTittle = styled.h3``;
 
 export const CardButton = styled.button`
-  padding: 10px 15px;
   font-size: ${Theme.Sizes.normal};
   font-weight: bold;
-  background: none;
-  color: ${Theme.colors.white};
   background: #252525;
-  border: 1px solid #0a0a0a;
+  color: ${Theme.colors.white};
+  padding: 10px 15px;
+  border: none;
   border-radius: 5px;
-  cursor: pointer;
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     background: #0a0a0a;

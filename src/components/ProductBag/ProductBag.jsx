@@ -5,23 +5,47 @@ import {
   BagHeader,
   BagFooter,
   Tittle,
+  BagProducts,
+  ButtonCheckout,
+  MessageCheckout,
+  PriceCheckout,
+  BagItem,
 } from './Style';
-import { IoMdClose } from 'react-icons/io';
-import { CardButton } from '../Card/Style';
 
-const Bag = () => {
+import { IoMdClose } from 'react-icons/io';
+
+const Bag = ({ setOpenBag, openBag }) => {
   return (
     <ContainerBag>
-      <BagContent>
+      <BagContent openBag={openBag}>
         <BagHeader>
           <Tittle>Carrinho de Compras</Tittle>
-          <IoMdClose size={28} />
+          <IoMdClose size={28} onClick={() => setOpenBag(false)} />
         </BagHeader>
+
+        <BagProducts>
+          <BagItem></BagItem>
+        </BagProducts>
+
         <BagFooter>
-          {' '}
-          <Tittle>Total: </Tittle>
-          <p>R$ 238,55</p>
-          <CardButton>Fializar</CardButton>
+          <p>0 itens</p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <Tittle>Total: </Tittle>
+
+            <PriceCheckout>R$ 238,55</PriceCheckout>
+          </div>
+
+          <ButtonCheckout>Finalizar</ButtonCheckout>
+
+          <MessageCheckout>
+            Complete sua compra e receba seus itens em breve !
+          </MessageCheckout>
         </BagFooter>
       </BagContent>
     </ContainerBag>

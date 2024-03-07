@@ -45,7 +45,8 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <Header setOpenBag={setOpenBag} openBag={openBag} />
+
       <div style={{ width: '100%', borderBottom: '1px solid #452CFF' }}>
         <Plataforms>
           {plataforms.map((item) => (

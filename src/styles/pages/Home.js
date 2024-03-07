@@ -73,5 +73,5 @@ export const Content = styled.section`
   display: grid;
   width: 100%;
   gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
 `;
