@@ -13,7 +13,6 @@ const GameCard = ({ background_image, id, name, rating }) => {
     <Card id={id}>
       <CardImage src={background_image} alt="card image" />
       <CardContent>
-        <Rating>{rating}</Rating>
         <CardTittle>{name}</CardTittle>
 
         <p>

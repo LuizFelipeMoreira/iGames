@@ -13,10 +13,12 @@ export const CardImage = styled.img`
   height: 180px;
   object-fit: cover;
   display: block;
+  border-radius: 5px;
 `;
 
 export const CardContent = styled.div`
-  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 export const CardTittle = styled.h3``;
