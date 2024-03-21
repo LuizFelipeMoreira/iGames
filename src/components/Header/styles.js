@@ -7,6 +7,19 @@ export const HeaderContainer = styled.header`
   font-family: ${Theme.font};
   padding: 1rem 5rem;
   color: ${Theme.colors.white};
+  position: relative;
+  @media (max-width: 920px) {
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+
+    .InputContainer {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -19,6 +32,10 @@ export const Logo = styled.h1`
   text-decoration: none;
   font-size: 2.25rem;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const InputHeader = styled.input`
@@ -40,6 +57,13 @@ export const Navigation = styled.ul`
   align-items: center;
   list-style: none;
   gap: 40px;
+
+  @media (max-width: 920px) {
+  }
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 export const Icon = styled.li`

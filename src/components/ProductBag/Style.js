@@ -23,6 +23,10 @@ export const BagContent = styled.div`
   position: fixed;
   right: 0;
   top: 0;
+
+  @media (max-width: 680px) {
+    width: 80%;
+  }
 `;
 
 export const BagHeader = styled.div`

@@ -17,7 +17,10 @@ const Header = ({ setOpenBag, openBag }) => {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        {/* <div
+          className="InputContainer"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
           <CiSearch size={26} fontWeight={'bold'} />
           <InputHeader
             type="text"
@@ -25,15 +28,15 @@ const Header = ({ setOpenBag, openBag }) => {
             id="product"
             placeholder="Procure por games . . ."
           />
-        </div>
+        </div> */}
         <Logo>iGames</Logo>
         <Navigation>
           <Icon>
-            <CgProfile size={26} fontWeight={'bold'} />
+            <CgProfile size={23} fontWeight={'bold'} />
           </Icon>
           <Icon>
             <PiShoppingCartBold
-              size={26}
+              size={23}
               fontWeight={'bold'}
               onClick={() => setOpenBag(true)}
             />

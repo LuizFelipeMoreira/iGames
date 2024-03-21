@@ -5,6 +5,7 @@ import {
   Content,
   PlataformItem,
   Plataforms,
+  SlideItem,
   TitleWrapper,
   Tittle,
 } from '../styles/pages/Home';
@@ -47,13 +48,14 @@ const Home = () => {
     <>
       <Header setOpenBag={setOpenBag} openBag={openBag} />
 
-      <div style={{ width: '100%', borderBottom: '1px solid #452CFF' }}>
+      <div style={{ maxWidth: '100%', borderBottom: '1px solid #452CFF' }}>
         <Plataforms>
           {plataforms.map((item) => (
             <PlataformItem key={item}>{item}</PlataformItem>
           ))}
         </Plataforms>
       </div>
+
       {gameList && (
         <Container>
           <Swiper
@@ -69,11 +71,7 @@ const Home = () => {
           >
             {gameList.map((item) => (
               <SwiperSlide key={item.id}>
-                <img
-                  src={item.background_image}
-                  className="slide-item"
-                  alt=""
-                />
+                <SlideItem src={item.background_image} alt="" />
                 <h2>{item.name}</h2>
               </SwiperSlide>
             ))}
