@@ -11,13 +11,13 @@ import {
 import { PiShoppingCartBold } from 'react-icons/pi';
 import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
-import Bag from '../ProductBag/ProductBag';
+import ShoppingCart from '../ShoopingCart/ShoppingCart';
 
 const Header = ({ setOpenBag, openBag }) => {
   return (
     <HeaderContainer>
       <HeaderContent>
-        {/* <div
+        <div
           className="InputContainer"
           style={{ display: 'flex', alignItems: 'center' }}
         >
@@ -28,7 +28,7 @@ const Header = ({ setOpenBag, openBag }) => {
             id="product"
             placeholder="Procure por games . . ."
           />
-        </div> */}
+        </div>
         <Logo>iGames</Logo>
         <Navigation>
           <Icon>
@@ -42,7 +42,7 @@ const Header = ({ setOpenBag, openBag }) => {
             />
             <ItemQuantity>0</ItemQuantity>
           </Icon>
-          {openBag && <Bag setOpenBag={setOpenBag} />}
+          {openBag && <ShoppingCart setOpenBag={setOpenBag} />}
         </Navigation>
       </HeaderContent>
     </HeaderContainer>

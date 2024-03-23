@@ -4,8 +4,8 @@ import Theme from '../../Theme/Theme';
 export const ContainerBag = styled.div`
   display: flex;
   position: fixed;
-  width: 100%;
-  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   inset: 0;
   top: 0;
@@ -53,6 +53,7 @@ export const BagProducts = styled.ul`
   flex-direction: column;
   gap: 5px;
   padding: 20px;
+  max-height: 660px;
   list-style: none;
   overflow-x: hidden;
   overflow-y: auto;
@@ -68,8 +69,8 @@ export const BagItem = styled.li`
   img {
     display: block;
     max-width: 100%;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    height: 100%;
     border-radius: 5px;
   }
 `;
