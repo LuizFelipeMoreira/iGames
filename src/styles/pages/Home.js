@@ -30,7 +30,7 @@ export const Plataforms = styled.ul`
   }
 
   @media (max-width: 768px) {
-    gap: 25px;
+    gap: 20px;
   }
 `;
 

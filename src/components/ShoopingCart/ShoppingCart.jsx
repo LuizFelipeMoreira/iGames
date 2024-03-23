@@ -14,120 +14,16 @@ import {
 
 import { IoMdClose } from 'react-icons/io';
 
-const ShoopingCart = ({ setOpenBag, openBag }) => {
+const ShoopingCart = ({ isOpen, setIsOpen }) => {
   return (
     <ContainerBag>
-      <BagContent openBag={openBag}>
+      <BagContent>
         <BagHeader>
           <Tittle>Carrinho de Compras</Tittle>
-          <IoMdClose size={28} onClick={() => setOpenBag(false)} />
+          <IoMdClose size={28} onClick={() => setIsOpen(false)} />
         </BagHeader>
 
         <BagProducts>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
           <BagItem>
             <div>
               <img

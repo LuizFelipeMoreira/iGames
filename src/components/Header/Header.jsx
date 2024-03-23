@@ -13,7 +13,7 @@ import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
 import ShoppingCart from '../ShoopingCart/ShoppingCart';
 
-const Header = ({ setOpenBag, openBag }) => {
+const Header = ({ isOpen, setIsOpen }) => {
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -38,11 +38,11 @@ const Header = ({ setOpenBag, openBag }) => {
             <PiShoppingCartBold
               size={23}
               fontWeight={'bold'}
-              onClick={() => setOpenBag(true)}
+              onClick={() => setIsOpen(true)}
             />
             <ItemQuantity>0</ItemQuantity>
           </Icon>
-          {openBag && <ShoppingCart setOpenBag={setOpenBag} />}
+          {isOpen && <ShoppingCart setIsOpen={setIsOpen} />}
         </Navigation>
       </HeaderContent>
     </HeaderContainer>

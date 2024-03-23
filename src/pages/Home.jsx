@@ -24,7 +24,6 @@ register();
 
 const Home = () => {
   const [gameList, setGameList] = React.useState(null);
-  const [openBag, setOpenBag] = React.useState(false);
 
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
 
@@ -46,8 +45,6 @@ const Home = () => {
 
   return (
     <>
-      <Header setOpenBag={setOpenBag} openBag={openBag} />
-
       <div style={{ maxWidth: '100%', borderBottom: '1px solid #452CFF' }}>
         <Plataforms>
           {plataforms.map((item) => (
