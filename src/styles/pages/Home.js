@@ -98,16 +98,6 @@ export const Tittle = styled.h1`
   }
 `;
 
-export const SlideItem = styled.img`
-  width: 100%;
-  height: 700px;
-  object-fit: cover;
-
-  @media (max-width: 768px) {
-    height: 400px;
-  }
-`;
-
 export const Content = styled.section`
   display: grid;
   width: 100%;

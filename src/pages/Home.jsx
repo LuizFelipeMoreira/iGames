@@ -1,39 +1,31 @@
-import React, { useEffect } from 'react';
-import Header from '../components/Header/Header';
+import React from 'react';
+
+import Slide from '../components/Slide/Slide';
+import GameCard from '../components/Card/Card';
+
 import {
   Container,
   Content,
   PlataformItem,
   Plataforms,
-  SlideItem,
   TitleWrapper,
   Tittle,
 } from '../styles/pages/Home';
 
 import { TotalGameListAPI } from '../API/api';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { register } from 'swiper/element/bundle';
-
-import GameCard from '../components/Card/Card';
-
-register();
+import { ProductContext } from '../Context/ProudctsContext';
 
 const Home = () => {
   const [gameList, setGameList] = React.useState(null);
-
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
 
-  useEffect(() => {
+  React.useEffect(() => {
     const request = async () => {
       try {
         const response = await fetch(TotalGameListAPI);
         const { results } = await response.json();
+
         setGameList(results);
-        console.log(results);
         return true;
       } catch (error) {
         console.log(error);
@@ -55,24 +47,7 @@ const Home = () => {
 
       {gameList && (
         <Container>
-          <Swiper
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            navigation
-            autoplay={{
-              delay: 2500,
-              pauseOnMouseEnter: true,
-              disableOnInteraction: false,
-            }}
-            loop
-          >
-            {gameList.map((item) => (
-              <SwiperSlide key={item.id}>
-                <SlideItem src={item.background_image} alt="" />
-                <h2>{item.name}</h2>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Slide gameList={gameList} />
 
           <TitleWrapper>
             <Tittle>Conheça nossas coleçoes</Tittle>

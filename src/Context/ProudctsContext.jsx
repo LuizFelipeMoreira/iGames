@@ -2,12 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
 
-const ProductContext = createContext();
+export const ProductContext = createContext();
 
 const ProudctsContext = ({ children }) => {
   const [products, setProdcuts] = useState([]);
 
-  function AddNewProduct() {}
+  function AddNewProduct({ target }) {
+    console.log(target.parentElement);
+  }
 
   function RemoveProduct() {}
 

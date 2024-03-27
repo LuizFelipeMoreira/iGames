@@ -7,8 +7,11 @@ import {
   CardTittle,
   Rating,
 } from './Style';
+import { ProductContext } from '../../Context/ProudctsContext';
 
 const GameCard = ({ background_image, id, name, rating }) => {
+  const { AddNewProduct } = React.useContext(ProductContext);
+
   return (
     <Card id={id}>
       <CardImage src={background_image} alt="card image" />
@@ -21,11 +24,10 @@ const GameCard = ({ background_image, id, name, rating }) => {
             currency: 'BRL',
           })}
         </p>
-        <CardButton>Adicionar</CardButton>
+        <CardButton onClick={AddNewProduct}>Adicionar</CardButton>
       </CardContent>
     </Card>
   );
 };
-<Card></Card>;
 
 export default GameCard;
