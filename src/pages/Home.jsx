@@ -18,6 +18,7 @@ import { ProductContext } from '../Context/ProudctsContext';
 const Home = () => {
   const [gameList, setGameList] = React.useState(null);
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
+  const { AddNewProduct } = React.useContext(ProductContext);
 
   React.useEffect(() => {
     const request = async () => {
@@ -25,15 +26,35 @@ const Home = () => {
         const response = await fetch(TotalGameListAPI);
         const { results } = await response.json();
 
-        setGameList(results);
+        const GamesFiltred = results.map((item) => {
+          return {
+            id: item.id,
+            title: item.name,
+            Rating: item.rating,
+            image: item.background_image,
+            price: Math.floor(Math.random() * 256).toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            }),
+          };
+        });
+
+        setGameList(GamesFiltred);
         return true;
       } catch (error) {
         console.log(error);
+        return false;
       }
     };
 
     request();
   }, []);
+
+  function sendGame({ currentTarget }) {
+    const id = +currentTarget.parentElement.id;
+    const clickedGame = gameList.find((item) => item.id === id);
+    AddNewProduct(clickedGame);
+  }
 
   return (
     <>
@@ -59,7 +80,7 @@ const Home = () => {
 
           <Content>
             {gameList.map((game) => (
-              <GameCard key={game.id} {...game} />
+              <GameCard key={game.id} {...game} onClick={sendGame} />
             ))}
           </Content>
         </Container>

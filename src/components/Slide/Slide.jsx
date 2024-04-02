@@ -24,7 +24,7 @@ const Slide = ({ gameList }) => {
       >
         {gameList.map((item) => (
           <SwiperSlide key={item.id}>
-            <SlideItem src={item.background_image} alt="" />
+            <SlideItem src={item.image} alt="" />
             <h2>{item.name}</h2>
           </SwiperSlide>
         ))}

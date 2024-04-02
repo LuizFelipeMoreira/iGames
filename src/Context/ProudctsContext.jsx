@@ -5,16 +5,19 @@ import { createContext } from 'react';
 export const ProductContext = createContext();
 
 const ProudctsContext = ({ children }) => {
-  const [products, setProdcuts] = useState([]);
+  const [productsBag, setProdcutsBag] = useState([]);
 
-  function AddNewProduct({ target }) {
-    console.log(target.parentElement);
+  function AddNewProduct(game) {
+    setProdcutsBag((prevArray) => [...prevArray, game]);
+    console.log(productsBag);
   }
 
   function RemoveProduct() {}
 
   return (
-    <ProductContext.Provider value={{ AddNewProduct, RemoveProduct, products }}>
+    <ProductContext.Provider
+      value={{ AddNewProduct, RemoveProduct, productsBag }}
+    >
       {children}
     </ProductContext.Provider>
   );

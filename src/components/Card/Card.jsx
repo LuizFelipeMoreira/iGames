@@ -7,24 +7,15 @@ import {
   CardTittle,
   Rating,
 } from './Style';
-import { ProductContext } from '../../Context/ProudctsContext';
 
-const GameCard = ({ background_image, id, name, rating }) => {
-  const { AddNewProduct } = React.useContext(ProductContext);
-
+const GameCard = ({ image, id, title, rating, price, onClick }) => {
   return (
-    <Card id={id}>
-      <CardImage src={background_image} alt="card image" />
-      <CardContent>
-        <CardTittle>{name}</CardTittle>
-
-        <p>
-          {Math.floor(Math.random() * 256).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
-        </p>
-        <CardButton onClick={AddNewProduct}>Adicionar</CardButton>
+    <Card>
+      <CardImage src={image} alt="card image" />
+      <CardContent id={id}>
+        <CardTittle>{title}</CardTittle>
+        <p>{price}</p>
+        <CardButton onClick={onClick}>Adicionar</CardButton>
       </CardContent>
     </Card>
   );
