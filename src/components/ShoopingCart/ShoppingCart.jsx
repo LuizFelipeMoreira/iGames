@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   ContainerBag,
   BagContent,
@@ -13,8 +13,13 @@ import {
 } from './Style';
 
 import { IoMdClose } from 'react-icons/io';
+import { ProductContext } from '../../Context/ProudctsContext';
 
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
+  const { productsBag } = useContext(ProductContext);
+
+  console.log(productsBag);
+
   return (
     <ContainerBag>
       <BagContent>
@@ -24,19 +29,18 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
         </BagHeader>
 
         <BagProducts>
-          <BagItem>
-            <div>
-              <img
-                src="https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg"
-                alt=""
-              />
-            </div>
+          {productsBag.map((product) => (
+            <BagItem key={product.id}>
+              <div>
+                <img src={product.image} alt="" />
+              </div>
 
-            <div>
-              <h4>Tomb Raider</h4>
-              <p>R$ 228,00</p>
-            </div>
-          </BagItem>
+              <div>
+                <h4>{product.title}</h4>
+                <p>{product.price}</p>
+              </div>
+            </BagItem>
+          ))}
         </BagProducts>
 
         <BagFooter>

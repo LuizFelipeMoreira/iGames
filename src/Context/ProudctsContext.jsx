@@ -8,11 +8,15 @@ const ProudctsContext = ({ children }) => {
   const [productsBag, setProdcutsBag] = useState([]);
 
   function AddNewProduct(game) {
-    setProdcutsBag((prevArray) => [...prevArray, game]);
-    console.log(productsBag);
+    setProdcutsBag((previusProducts) => [...previusProducts, game]);
+    //faca um map para adicionar um novo item no state prodctsBag
   }
 
   function RemoveProduct() {}
+
+  React.useEffect(() => {
+    console.log(productsBag);
+  }, [productsBag]);
 
   return (
     <ProductContext.Provider

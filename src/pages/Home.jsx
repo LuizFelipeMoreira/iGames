@@ -38,6 +38,7 @@ const Home = () => {
             }),
           };
         });
+        console.log(GamesFiltred);
 
         setGameList(GamesFiltred);
         return true;
