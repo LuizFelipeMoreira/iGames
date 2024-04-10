@@ -33,6 +33,12 @@ export const Logo = styled.h1`
   font-size: 2.25rem;
   font-weight: bold;
 
+  a {
+    text-decoration: none;
+    color: ${Theme.colors.white};
+    font-weight: bold;
+  }
+
   @media (max-width: 768px) {
     font-size: 2rem;
   }

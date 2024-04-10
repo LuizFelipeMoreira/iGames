@@ -12,6 +12,7 @@ import { PiShoppingCartBold } from 'react-icons/pi';
 import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
 import ShoppingCart from '../ShoopingCart/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 const Header = ({ isOpen, setIsOpen }) => {
   return (
@@ -29,7 +30,10 @@ const Header = ({ isOpen, setIsOpen }) => {
             placeholder="Procure por games . . ."
           />
         </div>
-        <Logo>iGames</Logo>
+
+        <Logo>
+          <Link to="/">iGames</Link>
+        </Logo>
         <Navigation>
           <Icon>
             <CgProfile size={23} fontWeight={'bold'} />

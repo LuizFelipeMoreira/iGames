@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardButton,
@@ -13,8 +14,10 @@ const GameCard = ({ image, id, title, rating, price, onClick }) => {
     <Card>
       <CardImage src={image} alt="card image" />
       <CardContent id={id}>
-        <CardTittle>{title}</CardTittle>
-        <p>{price}</p>
+        <Link to={`product/${id}`}>
+          <CardTittle>{title}</CardTittle>
+          <p>{price}</p>
+        </Link>
         <CardButton onClick={onClick}>Adicionar</CardButton>
       </CardContent>
     </Card>
