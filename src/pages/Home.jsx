@@ -30,7 +30,7 @@ const Home = () => {
           return {
             id: item.id,
             title: item.name,
-            Rating: item.rating,
+            rating: item.rating,
             image: item.background_image,
             price: Math.floor(Math.random() * 256).toLocaleString('pt-BR', {
               style: 'currency',
