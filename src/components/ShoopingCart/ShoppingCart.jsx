@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   ContainerBag,
   BagContent,
@@ -16,9 +16,28 @@ import { IoMdClose } from 'react-icons/io';
 import { ProductContext } from '../../Context/ProudctsContext';
 
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
-  const { productsBag } = useContext(ProductContext);
+  const { productsBag } = React.useContext(ProductContext);
 
   console.log(productsBag);
+
+  function calculateTotalPrice() {
+    const totalPrice = productsBag.reduce((acc, product) => {
+      const priceWithoutCurrencySymbol = product.price
+        .replace(/[R$]/g, '')
+        .replace(',', '.');
+
+      const parsedPrice = parseFloat(priceWithoutCurrencySymbol);
+
+      return acc + parsedPrice;
+    }, 0);
+
+    const formattedPrice = totalPrice.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+
+    return formattedPrice;
+  }
 
   return (
     <ContainerBag>
@@ -44,7 +63,7 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
         </BagProducts>
 
         <BagFooter>
-          <p>0 itens</p>
+          <p>{productsBag.length} itens</p>
           <div
             style={{
               display: 'flex',
@@ -54,7 +73,7 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
           >
             <Tittle>Total: </Tittle>
 
-            <PriceCheckout>R$ 238,55</PriceCheckout>
+            <PriceCheckout>{calculateTotalPrice()}</PriceCheckout>
           </div>
 
           <ButtonCheckout>Finalizar</ButtonCheckout>

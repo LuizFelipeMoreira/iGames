@@ -13,8 +13,11 @@ import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
 import ShoppingCart from '../ShoopingCart/ShoppingCart';
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../../Context/ProudctsContext';
 
 const Header = ({ isOpen, setIsOpen }) => {
+  const { productsBag } = React.useContext(ProductContext);
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -44,7 +47,7 @@ const Header = ({ isOpen, setIsOpen }) => {
               fontWeight={'bold'}
               onClick={() => setIsOpen(true)}
             />
-            <ItemQuantity>0</ItemQuantity>
+            <ItemQuantity>{productsBag.length}</ItemQuantity>
           </Icon>
           {isOpen && <ShoppingCart setIsOpen={setIsOpen} />}
         </Navigation>
