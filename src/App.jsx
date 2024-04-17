@@ -4,23 +4,23 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import Product from './pages/Product';
-import Header from './components/Header/Header';
 
-import ProudctsContext from './Context/ProudctsContext';
+import { ProductProvider } from './context/ProductContext';
+import { Header } from './components/Header';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <BrowserRouter>
-      <ProudctsContext>
+      <ProductProvider>
         <Header setIsOpen={setIsOpen} isOpen={isOpen} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="product/:id" element={<Product />} />
           <Route path="checkout" element={<Checkout />} />
         </Routes>
-      </ProudctsContext>
+      </ProductProvider>
     </BrowserRouter>
   );
 };

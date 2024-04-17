@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { SlideItem } from './Style';
+import { SlideItem } from './style';
 
 register();
 
-const Slide = ({ gameList }) => {
+export const Slide = ({ gameList }) => {
   return (
     <div>
       <Swiper
@@ -32,5 +32,3 @@ const Slide = ({ gameList }) => {
     </div>
   );
 };
-
-export default Slide;

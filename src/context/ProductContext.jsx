@@ -4,7 +4,7 @@ import { createContext } from 'react';
 
 export const ProductContext = createContext();
 
-const ProudctsContext = ({ children }) => {
+export const ProductProvider = ({ children }) => {
   const [productsBag, setProdcutsBag] = useState([]);
 
   function AddNewProduct(game) {
@@ -27,4 +27,4 @@ const ProudctsContext = ({ children }) => {
   );
 };
 
-export default ProudctsContext;
+export const useProduct = () => React.useContext(ProductContext);

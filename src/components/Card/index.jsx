@@ -7,9 +7,9 @@ import {
   CardImage,
   CardTittle,
   Rating,
-} from './Style';
+} from './style';
 
-const GameCard = ({ image, id, title, rating, price, onClick }) => {
+export const GameCard = ({ image, id, title, rating, price, onClick }) => {
   return (
     <Card>
       <CardImage src={image} alt="card image" />
@@ -23,5 +23,3 @@ const GameCard = ({ image, id, title, rating, price, onClick }) => {
     </Card>
   );
 };
-
-export default GameCard;

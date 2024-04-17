@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Slide from '../components/Slide/Slide';
-import GameCard from '../components/Card/Card';
+import { Slide } from '../components/Slide';
+import { GameCard } from '../components/Card';
 
 import {
   Container,
@@ -12,13 +12,13 @@ import {
   Tittle,
 } from '../styles/pages/Home';
 
-import { TotalGameListAPI } from '../API/api';
-import { ProductContext } from '../Context/ProudctsContext';
+import { TotalGameListAPI } from '../api/api';
+import { useProduct } from '../context/ProductContext';
 
 const Home = () => {
   const [gameList, setGameList] = React.useState(null);
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
-  const { AddNewProduct } = React.useContext(ProductContext);
+  const { AddNewProduct } = useProduct();
 
   React.useEffect(() => {
     const request = async () => {
