@@ -11,12 +11,12 @@ import {
 import { PiShoppingCartBold } from 'react-icons/pi';
 import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
-import ShoppingCart from '../ShoopingCart/ShoppingCart';
+import ShoppingCart from '../ShoopingCart';
 import { Link } from 'react-router-dom';
-import { ProductContext } from '../../Context/ProudctsContext';
+import { useProduct } from '../../context/ProductContext';
 
-const Header = ({ isOpen, setIsOpen }) => {
-  const { productsBag } = React.useContext(ProductContext);
+export const Header = ({ isOpen, setIsOpen }) => {
+  const { productsBag } = useProduct();
 
   return (
     <HeaderContainer>
@@ -55,5 +55,3 @@ const Header = ({ isOpen, setIsOpen }) => {
     </HeaderContainer>
   );
 };
-
-export default Header;

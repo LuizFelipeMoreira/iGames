@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../Theme/Theme';
+import Theme from '../../theme/Theme';
 
 export const Card = styled.div`
   border: 1px solid ${Theme.colors.Purple};
@@ -11,7 +11,7 @@ export const CardImage = styled.img`
   max-width: 100%;
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
   border-radius: 5px;
 `;

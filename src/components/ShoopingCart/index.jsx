@@ -10,13 +10,13 @@ import {
   MessageCheckout,
   PriceCheckout,
   BagItem,
-} from './Style';
+} from './style';
 
 import { IoMdClose } from 'react-icons/io';
-import { ProductContext } from '../../Context/ProudctsContext';
+import { useProduct } from '../../context/ProductContext';
 
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
-  const { productsBag } = React.useContext(ProductContext);
+  const { productsBag } = useProduct();
 
   console.log(productsBag);
 
