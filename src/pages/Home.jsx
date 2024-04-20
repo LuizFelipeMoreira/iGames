@@ -12,7 +12,7 @@ import {
   Tittle,
 } from '../styles/pages/Home';
 
-import { TotalGameListAPI } from '../api/api';
+import { GameListApi, key } from '../api/api';
 import { useProduct } from '../context/ProductContext';
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
   React.useEffect(() => {
     const request = async () => {
       try {
-        const response = await fetch(TotalGameListAPI);
+        const response = await fetch(GameListApi);
         const { results } = await response.json();
 
         const GamesFiltred = results.map((item) => {
