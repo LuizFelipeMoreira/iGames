@@ -12,6 +12,7 @@ O projeto consiste em uma aplicação web para compra de jogos online. Os usuár
 <li>React</li>
 <li>React Router Dom</li>
 <li>Styled Components</li>
+<li>Css</li>
 </ul>
 
 ###
