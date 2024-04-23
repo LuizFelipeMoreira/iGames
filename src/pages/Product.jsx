@@ -16,47 +16,33 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
+import { useProduct } from '../context/ProductContext';
 
 register();
 
 const Product = () => {
-  const [gameContent, setGameContent] = React.useState([]);
-  const [gameScreenshots, setGameScreenshots] = React.useState([]);
-
+  const [gameContent, setGameContent] = React.useState(null);
+  const { gameList } = useProduct();
   const { id } = useParams();
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [contentResult, screenshotsResult] = await Promise.all([
-          fetch(
-            `https://api.rawg.io/api/games/${id}?key=a4789622abbc4b87a151d4ba9c522e05`
-          ),
-          fetch(
-            `https://api.rawg.io/api/games/${id}/screenshots?key=a4789622abbc4b87a151d4ba9c522e05`
-          ),
-        ]);
-
-        const content = await contentResult.json();
-        const screenshots = await screenshotsResult.json();
-
-        setGameContent(content);
-        setGameScreenshots(screenshots.results);
-      } catch (error) {
-        console.error('Falha ao buscar dados:', error);
-      }
-    };
-    console.log(gameScreenshots);
-    fetchData();
-  }, []);
+    const content = gameList.find((item) => item.id === Number(id));
+    setGameContent(content);
+  }, [id]);
 
   return (
     <ContainerProduct>
       <Content>
         <div className="slide-wrapper"></div>
         <InformationGame>
-          <h1>{gameContent.name}</h1>
-          <Description></Description>
+          <h1>{gameContent && gameContent.title}</h1>
+          <p>{gameContent && gameContent.price}</p>
+          <Description>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
+            aspernatur praesentium voluptatibus repellendus tempore? Sequi,
+            eveniet suscipit nam est illum obcaecati quia deleniti. Perferendis
+            facere deserunt aperiam reiciendis cumque voluptate.
+          </Description>
         </InformationGame>
       </Content>
 
