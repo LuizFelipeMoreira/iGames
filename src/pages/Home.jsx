@@ -12,49 +12,21 @@ import {
   Tittle,
 } from '../styles/pages/Home';
 
-import { GameListApi, key } from '../api/api';
 import { useProduct } from '../context/ProductContext';
 
 const Home = () => {
-  const [gameList, setGameList] = React.useState(null);
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
-  const { AddNewProduct } = useProduct();
+  const { gameList, fetchGames, addNewProduct } = useProduct();
 
   React.useEffect(() => {
-    const request = async () => {
-      try {
-        const response = await fetch(GameListApi);
-        const { results } = await response.json();
-
-        const GamesFiltred = results.map((item) => {
-          return {
-            id: item.id,
-            title: item.name,
-            rating: item.rating,
-            image: item.background_image,
-            price: Math.floor(Math.random() * 256).toLocaleString('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }),
-          };
-        });
-        console.log(GamesFiltred);
-
-        setGameList(GamesFiltred);
-        return true;
-      } catch (error) {
-        console.log(error);
-        return false;
-      }
-    };
-
-    request();
+    if (gameList === null) fetchGames();
   }, []);
 
   function sendGame({ currentTarget }) {
-    const id = +currentTarget.parentElement.id;
+    const id = Number(currentTarget.parentElement.id);
     const clickedGame = gameList.find((item) => item.id === id);
-    AddNewProduct(clickedGame);
+    console.log(clickedGame);
+    addNewProduct(clickedGame);
   }
 
   return (
