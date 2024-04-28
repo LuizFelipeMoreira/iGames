@@ -9,6 +9,12 @@ import {
   Rating,
 } from './style';
 
+import { FaXbox } from 'react-icons/fa';
+import { FaPlaystation } from 'react-icons/fa';
+import { TiVendorAndroid } from 'react-icons/ti';
+import { FaWindows } from 'react-icons/fa';
+import { MdOutlineShoppingCart } from 'react-icons/md';
+
 export const GameCard = ({ image, id, title, rating, price, onClick }) => {
   return (
     <Card>
@@ -16,9 +22,12 @@ export const GameCard = ({ image, id, title, rating, price, onClick }) => {
       <CardContent id={id}>
         <Link to={`product/${id}`}>
           <CardTittle>{title}</CardTittle>
+          <FaPlaystation /> <FaXbox /> <TiVendorAndroid /> <FaWindows />
           <p>{price}</p>
         </Link>
-        <CardButton onClick={onClick}>Adicionar</CardButton>
+        <CardButton onClick={onClick}>
+          <MdOutlineShoppingCart /> Adicionar
+        </CardButton>
       </CardContent>
     </Card>
   );

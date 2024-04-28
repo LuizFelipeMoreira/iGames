@@ -39,8 +39,15 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
     return formattedPrice;
   }
 
+  function outsideClick(event) {
+    if (event.target === event.currentTarget) {
+      console.log(event.currentTarget);
+      setIsOpen(false);
+    }
+  }
+
   return (
-    <ContainerBag>
+    <ContainerBag open={isOpen} onClick={outsideClick}>
       <BagContent>
         <BagHeader>
           <Tittle>Carrinho de Compras</Tittle>
