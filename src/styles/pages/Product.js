@@ -18,18 +18,55 @@ export const ContainerProduct = styled.div`
 
 export const Content = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 20px;
+  padding-top: 30px;
+
+  .SwiperThumbs {
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+`;
+
+export const WrapperSlide = styled.div`
+  max-width: 800px;
 `;
 
 export const SlideImage = styled.img`
-  aspect-ratio: 16/9;
+  max-width: 100%;
   display: block;
   border-radius: 5px;
 `;
 
-export const InformationGame = styled.div``;
+export const InformationGame = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-export const ButtonAddToCart = styled.button``;
+  h1 {
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+`;
+
+export const ButtonAddToCart = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: max-content;
+  font-size: 1.125rem;
+  background: #252525;
+  color: ${Theme.colors.white};
+  padding: 20px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: #0a0a0a;
+  }
+`;
 
 export const Tittle = styled.h1`
   font-size: 2.25rem;

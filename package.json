@@ -1,5 +1,5 @@
 {
-  "name": "iGames",
+  "name": "igames",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -26,5 +26,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8"
-  }
+  },
+  "description": "Este é um projeto de front-end para um ecommerce de games desenvolvido utilizando React, React Router Dom e Styled Components.",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }
