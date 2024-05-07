@@ -6,11 +6,13 @@ export const ProductContext = React.createContext();
 export const ProductProvider = ({ children }) => {
   const [gameList, setGameList] = React.useState(null);
   const [productsBag, setProdcutsBag] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
   async function fetchGames() {
     try {
       const response = await fetch(GameListApi);
       const { results } = await response.json();
+      console.log(results);
 
       const gamesFiltred = results.map((item) => {
         return {
@@ -34,8 +36,12 @@ export const ProductProvider = ({ children }) => {
   }
 
   function addNewProduct(game) {
-    setProdcutsBag((previusProducts) => [...previusProducts, game]);
-    //faca um map para adicionar um novo item no state prodctsBag
+    setLoading(true);
+    const newProductsBag = [...productsBag, game];
+    setTimeout(() => {
+      setLoading(false);
+      setProdcutsBag(newProductsBag);
+    }, 800);
   }
 
   function RemoveProduct() {}
@@ -52,6 +58,7 @@ export const ProductProvider = ({ children }) => {
         addNewProduct,
         RemoveProduct,
         productsBag,
+        loading,
       }}
     >
       {children}
