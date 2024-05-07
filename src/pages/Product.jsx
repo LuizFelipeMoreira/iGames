@@ -30,9 +30,10 @@ const Product = () => {
   const [gameContent, setGameContent] = React.useState(null);
   const [gameScreenshots, setGameScreenshots] = React.useState([]);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
-  const { gameList } = useProduct();
+  const { gameList, addNewProduct, loading, fetchGames } = useProduct();
   const { id } = useParams();
-  const { addNewProduct, loading } = useProduct();
+
+  //if (gameList === null) fetchGames();
 
   React.useEffect(() => {
     const content = gameList.find((item) => item.id === Number(id));
@@ -80,7 +81,10 @@ const Product = () => {
             eveniet suscipit nam est illum obcaecati quia deleniti. Perferendis
             facere deserunt aperiam reiciendis cumque voluptate.
           </Description>
-          <ButtonAddToCart onClick={() => addNewProduct(gameContent)}>
+          <ButtonAddToCart
+            onClick={() => addNewProduct(gameContent)}
+            disabled={loading}
+          >
             <MdOutlineShoppingCart />
             {loading ? 'Adicionando ao carrinho ...' : 'Adicionar ao carrinho'}
           </ButtonAddToCart>

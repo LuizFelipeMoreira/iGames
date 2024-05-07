@@ -66,6 +66,12 @@ export const ButtonAddToCart = styled.button`
   &:hover {
     background: #0a0a0a;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    //  pointer-events: none;
+    background-color: gray;
+  }
 `;
 
 export const Tittle = styled.h1`
