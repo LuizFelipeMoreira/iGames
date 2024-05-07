@@ -32,10 +32,12 @@ const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   const { gameList } = useProduct();
   const { id } = useParams();
+  const { addNewProduct, loading } = useProduct();
 
   React.useEffect(() => {
     const content = gameList.find((item) => item.id === Number(id));
     setGameContent(content);
+    console.log(content);
     setGameScreenshots(content.screenshots);
   }, [id]);
 
@@ -78,9 +80,9 @@ const Product = () => {
             eveniet suscipit nam est illum obcaecati quia deleniti. Perferendis
             facere deserunt aperiam reiciendis cumque voluptate.
           </Description>
-          <ButtonAddToCart>
+          <ButtonAddToCart onClick={() => addNewProduct(gameContent)}>
             <MdOutlineShoppingCart />
-            Adicionar ao carrinho
+            {loading ? 'Adicionando ao carrinho ...' : 'Adicionar ao carrinho'}
           </ButtonAddToCart>
         </InformationGame>
       </Content>
