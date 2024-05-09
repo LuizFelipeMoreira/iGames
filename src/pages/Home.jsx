@@ -3,19 +3,11 @@ import React from 'react';
 import { Slide } from '../components/Slide';
 import { GameCard } from '../components/Card';
 
-import {
-  Container,
-  Content,
-  PlataformItem,
-  Plataforms,
-  TitleWrapper,
-  Tittle,
-} from '../styles/pages/Home';
+import { Container, Content, TitleWrapper, Tittle } from '../styles/pages/Home';
 
 import { useProduct } from '../context/ProductContext';
 
 const Home = () => {
-  const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
   const { gameList, fetchGames, addNewProduct } = useProduct();
 
   React.useEffect(() => {
@@ -31,14 +23,6 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ maxWidth: '100%', borderBottom: '1px solid #452CFF' }}>
-        <Plataforms>
-          {plataforms.map((item) => (
-            <PlataformItem key={item}>{item}</PlataformItem>
-          ))}
-        </Plataforms>
-      </div>
-
       {gameList && (
         <Container>
           <Slide gameList={gameList} />

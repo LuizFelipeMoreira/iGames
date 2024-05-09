@@ -1,5 +1,4 @@
 import React from 'react';
-import { key } from '../api/api';
 import { useParams } from 'react-router-dom';
 
 import {
@@ -74,7 +73,7 @@ const Product = () => {
         </WrapperSlide>
         <InformationGame>
           <h1>{gameContent && gameContent.title}</h1>
-          <p>{gameContent && gameContent.price}</p>
+          <h3>{gameContent && gameContent.price}</h3>
           <Description>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
             aspernatur praesentium voluptatibus repellendus tempore? Sequi,

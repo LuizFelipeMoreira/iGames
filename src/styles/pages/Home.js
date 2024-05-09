@@ -14,53 +14,6 @@ export const Container = styled.main`
   @media (max-width: 768px) {
   }
 `;
-export const Plataforms = styled.ul`
-  display: flex;
-  align-items: center;
-  max-width: max-content;
-  margin: 0 auto;
-  list-style: none;
-  gap: 80px;
-  padding: 15px;
-  font-family: ${Theme.font};
-  text-align: center;
-
-  @media (max-width: 920px) {
-    gap: 50px;
-  }
-
-  @media (max-width: 768px) {
-    gap: 20px;
-  }
-`;
-
-export const PlataformItem = styled.li`
-  display: flex;
-  align-items: center;
-  font-size: ${Theme.Sizes.large};
-  cursor: pointer;
-  gap: 5px;
-
-  &:hover {
-    color: ${Theme.colors.gray1};
-  }
-
-  &::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-
-    background: ${Theme.colors.Purple};
-  }
-
-  @media (max-width: 920px) {
-    font-size: ${Theme.Sizes.normal};
-  }
-
-  @media (max-width: 768px) {
-    font-size: ${Theme.Sizes.small};
-  }
-`;
 
 export const TitleWrapper = styled.div`
   display: flex;
