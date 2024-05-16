@@ -44,7 +44,10 @@ export const ProductProvider = ({ children }) => {
     }, 800);
   }
 
-  function RemoveProduct() {}
+  function RemoveProduct(id) {
+    const productRemoved = productsBag.filter((item) => item.id !== id);
+    setProdcutsBag(productRemoved);
+  }
 
   React.useEffect(() => {
     console.log(productsBag);

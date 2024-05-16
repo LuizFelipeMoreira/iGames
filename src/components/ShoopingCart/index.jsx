@@ -14,9 +14,10 @@ import {
 
 import { IoMdClose } from 'react-icons/io';
 import { useProduct } from '../../context/ProductContext';
+import { Link } from 'react-router-dom';
 
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
-  const { productsBag } = useProduct();
+  const { productsBag, RemoveProduct } = useProduct();
 
   console.log(productsBag);
 
@@ -62,8 +63,12 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
               </div>
 
               <div>
-                <h4>{product.title}</h4>
+                <Link to={`product/${product.id}`}>
+                  <h4>{product.title}</h4>
+                </Link>
+
                 <p>{product.price}</p>
+                <p onClick={() => RemoveProduct(product.id)}>Remover</p>
               </div>
             </BagItem>
           ))}

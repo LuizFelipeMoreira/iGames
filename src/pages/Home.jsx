@@ -17,7 +17,7 @@ const Home = () => {
   function sendGame({ currentTarget }) {
     const id = Number(currentTarget.parentElement.id);
     const clickedGame = gameList.find((item) => item.id === id);
-    console.log(clickedGame);
+
     addNewProduct(clickedGame);
   }
 

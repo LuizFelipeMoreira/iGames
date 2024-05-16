@@ -36,8 +36,8 @@ const Product = () => {
 
   React.useEffect(() => {
     const content = gameList.find((item) => item.id === Number(id));
+
     setGameContent(content);
-    console.log(content);
     setGameScreenshots(content.screenshots);
   }, [id]);
 
