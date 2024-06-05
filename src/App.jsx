@@ -7,6 +7,7 @@ import Product from './pages/Product';
 
 import { ProductProvider } from './context/ProductContext';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer/Footer';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="product/:id" element={<Product />} />
           <Route path="checkout" element={<Checkout />} />
         </Routes>
+        <Footer />
       </ProductProvider>
     </BrowserRouter>
   );
