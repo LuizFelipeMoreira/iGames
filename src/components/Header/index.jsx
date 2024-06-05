@@ -10,9 +10,12 @@ import {
   PlataformItem,
   Plataforms,
 } from './styles';
+
 import { PiShoppingCartBold } from 'react-icons/pi';
 import { CgProfile } from 'react-icons/cg';
 import { CiSearch } from 'react-icons/ci';
+import { FaGamepad } from 'react-icons/fa6';
+
 import ShoppingCart from '../ShoopingCart';
 import { Link } from 'react-router-dom';
 import { useProduct } from '../../context/ProductContext';
@@ -38,9 +41,13 @@ export const Header = ({ isOpen, setIsOpen }) => {
             />
           </div>
 
-          <Logo>
-            <Link to="/">iGames</Link>
-          </Logo>
+          <Link to="/">
+            <Logo>
+              {' '}
+              <FaGamepad />
+              iGames
+            </Logo>
+          </Link>
           <Navigation>
             <Icon>
               <CgProfile size={23} fontWeight={'bold'} />

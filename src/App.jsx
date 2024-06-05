@@ -7,7 +7,7 @@ import Product from './pages/Product';
 
 import { ProductProvider } from './context/ProductContext';
 import { Header } from './components/Header';
-import { Footer } from './components/Footer/Footer';
+import { Footer } from './components/Footer';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);

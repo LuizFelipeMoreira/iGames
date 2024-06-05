@@ -8,13 +8,10 @@ export const FooterBackground = styled.footer`
   font-family: ${Theme.font};
   background: ${Theme.colors.black};
   color: ${Theme.colors.white};
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 
   h1 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     margin: auto;
   }
 `;
