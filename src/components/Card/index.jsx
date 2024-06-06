@@ -15,7 +15,11 @@ import { TiVendorAndroid } from 'react-icons/ti';
 import { FaWindows } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 
+import { useProduct } from '../../context/ProductContext';
+
 export const GameCard = ({ image, id, title, rating, price, onClick }) => {
+  const { error } = useProduct();
+
   return (
     <Card>
       <CardImage src={image} alt="card image" />

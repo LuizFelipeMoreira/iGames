@@ -29,7 +29,7 @@ const Product = () => {
   const [gameContent, setGameContent] = React.useState(null);
   const [gameScreenshots, setGameScreenshots] = React.useState([]);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
-  const { gameList, addNewProduct, loading, fetchGames } = useProduct();
+  const { gameList, addNewProduct, loading, fetchGames, error } = useProduct();
   const { id } = useParams();
 
   //if (gameList === null) fetchGames();
@@ -87,6 +87,7 @@ const Product = () => {
             <MdOutlineShoppingCart />
             {loading ? 'Adicionando ao carrinho ...' : 'Adicionar ao carrinho'}
           </ButtonAddToCart>
+          {error && <p style={{ color: '#452CFF' }}>{error}</p>}
         </InformationGame>
       </Content>
 

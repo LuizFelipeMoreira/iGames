@@ -7,6 +7,7 @@ export const ProductProvider = ({ children }) => {
   const [gameList, setGameList] = React.useState(null);
   const [productsBag, setProdcutsBag] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
   async function fetchGames() {
     try {
@@ -35,13 +36,23 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
+  function isProductAlreadyAdded(game) {
+    return productsBag.some((item) => item.id === game.id);
+  }
+
   function addNewProduct(game) {
-    setLoading(true);
-    const newProductsBag = [...productsBag, game];
-    setTimeout(() => {
-      setLoading(false);
-      setProdcutsBag(newProductsBag);
-    }, 800);
+    if (!isProductAlreadyAdded(game)) {
+      setLoading(true);
+      const newProductsBag = [...productsBag, game];
+
+      setTimeout(() => {
+        setLoading(false);
+        setProdcutsBag(newProductsBag);
+      }, 800);
+    } else {
+      setError('Este item ja  foi adicionado');
+      setTimeout(() => setError(null), 800);
+    }
   }
 
   function RemoveProduct(id) {
@@ -62,6 +73,7 @@ export const ProductProvider = ({ children }) => {
         RemoveProduct,
         productsBag,
         loading,
+        error,
       }}
     >
       {children}
