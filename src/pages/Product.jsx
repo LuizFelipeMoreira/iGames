@@ -114,6 +114,13 @@ const Product = () => {
             {loading ? 'Adicionando ao carrinho ...' : 'Adicionar ao carrinho'}
           </ButtonAddToCart>
           {error && <p style={{ color: '#452CFF' }}>{error}</p>}
+          <hr />
+          <h4>Plataformas</h4>
+          <p>Xbox, Playstastion, nitendo, pc</p>
+          <h4>Generos</h4>
+          <p>Tiro, Acao, Aventura.</p>
+          <h4>Desenvolvedores</h4>
+          <p>Charles, Jhons Witc, Ferber Lyon</p>
         </InformationGame>
       </Content>
 
