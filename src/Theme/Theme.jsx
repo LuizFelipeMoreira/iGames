@@ -15,5 +15,17 @@ const Theme = {
     xlarge: '1.5rem',
     '2xl': '2rem',
   },
+  screenSize: {
+    mobile: '768px',
+    tablet: '1024px',
+    desktop: '1200px',
+  },
 };
+
+Theme.device = {
+  mobile: `(max-width: ${Theme.screenSize.mobile})`,
+  tablet: `(max-width: ${Theme.screenSize.tablet})`,
+  desktop: `(max-width: ${Theme.screenSize.desktop})`,
+};
+
 export default Theme;
