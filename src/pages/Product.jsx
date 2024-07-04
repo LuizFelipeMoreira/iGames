@@ -48,6 +48,8 @@ const Product = () => {
       setGameScreenshots(content.screenshots);
     }
 
+    console.log(id);
+
     getRelatedGames();
   }, [id, gameList]);
   //pergar 3 jogos aleatorios de game List
@@ -172,7 +174,9 @@ const Product = () => {
               <img src={item.image} alt="" />
               <CardInformation>
                 <GameTitle>{item.title}</GameTitle>
-                <ButtonGameCard>Veja mais</ButtonGameCard>
+                <ButtonGameCard>
+                  <Link to={`/product/${item.id}`}>Ver mais</Link>
+                </ButtonGameCard>
               </CardInformation>
             </RelatedGameCard>
           ))}
