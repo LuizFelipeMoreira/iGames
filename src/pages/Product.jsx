@@ -35,6 +35,7 @@ const Product = () => {
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   const { gameList, addNewProduct, loading, fetchGames, error } = useProduct();
   const [relatedGamesList, setRelatedGamesList] = React.useState([]);
+  const ref = React.useRef(null);
   const { id } = useParams();
 
   //if (gameList === null) fetchGames();
@@ -43,6 +44,7 @@ const Product = () => {
     const content = gameList.find((item) => item.id === Number(id));
 
     setGameContent(content);
+    ref.current.scrollIntoView();
 
     if (content) {
       setGameScreenshots(content.screenshots);
@@ -70,7 +72,7 @@ const Product = () => {
 
   console.log(id);
   return (
-    <ContainerProduct>
+    <ContainerProduct ref={ref}>
       <Content>
         <WrapperSlide>
           <Swiper
