@@ -20,12 +20,17 @@ const Theme = {
     tablet: '1024px',
     desktop: '1200px',
   },
+  device: {
+    mobile: '(max-width: 768px)',
+    tablet: '(max-width: 1024px)',
+    desktop: '(max-width: 1200px)',
+  },
 };
 
-Theme.device = {
-  mobile: `(max-width: ${Theme.screenSize.mobile})`,
-  tablet: `(max-width: ${Theme.screenSize.tablet})`,
-  desktop: `(max-width: ${Theme.screenSize.desktop})`,
-};
+// Theme.device = {
+//   mobile: `(max-width: ${Theme.screenSize.mobile})`,
+//   tablet: `(max-width: ${Theme.screenSize.tablet})`,
+//   desktop: `(max-width: ${Theme.screenSize.desktop})`,
+// };
 
 export default Theme;
