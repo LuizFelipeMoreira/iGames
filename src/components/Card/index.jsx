@@ -14,11 +14,22 @@ import { FaPlaystation } from 'react-icons/fa';
 import { TiVendorAndroid } from 'react-icons/ti';
 import { FaWindows } from 'react-icons/fa';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import { FaCheckCircle } from 'react-icons/fa';
 
 import { useProduct } from '../../context/ProductContext';
 
-export const GameCard = ({ image, id, title, rating, price, onClick }) => {
+export const GameCard = ({
+  image,
+  id,
+  title,
+  rating,
+  price,
+  onClick,
+  isActive,
+}) => {
   const { error } = useProduct();
+
+  console.log(isActive);
 
   return (
     <Card>
@@ -30,7 +41,16 @@ export const GameCard = ({ image, id, title, rating, price, onClick }) => {
           <p>{price}</p>
         </Link>
         <CardButton onClick={onClick}>
-          <MdOutlineShoppingCart /> Adicionar
+          {isActive ? (
+            <>
+              {' '}
+              Adicionado <FaCheckCircle />
+            </>
+          ) : (
+            <>
+              <MdOutlineShoppingCart /> Adicionar
+            </>
+          )}
         </CardButton>
       </CardContent>
     </Card>

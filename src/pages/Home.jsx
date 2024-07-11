@@ -8,7 +8,7 @@ import { Container, Content, TitleWrapper, Tittle } from '../styles/pages/Home';
 import { useProduct } from '../context/ProductContext';
 
 const Home = () => {
-  const { gameList, fetchGames, addNewProduct } = useProduct();
+  const { gameList, fetchGames, addNewProduct, productsBag } = useProduct();
 
   React.useEffect(() => {
     if (gameList === null) fetchGames();
@@ -19,6 +19,10 @@ const Home = () => {
     const clickedGame = gameList.find((item) => item.id === id);
 
     addNewProduct(clickedGame);
+  }
+
+  function includesInBag(game) {
+    return productsBag.some((item) => item.id === game.id);
   }
 
   return (
@@ -37,7 +41,12 @@ const Home = () => {
 
           <Content>
             {gameList.map((game) => (
-              <GameCard key={game.id} {...game} onClick={sendGame} />
+              <GameCard
+                key={game.id}
+                {...game}
+                onClick={sendGame}
+                isActive={includesInBag(game)}
+              />
             ))}
           </Content>
         </Container>
