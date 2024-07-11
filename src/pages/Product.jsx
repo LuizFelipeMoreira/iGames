@@ -52,11 +52,8 @@ const Product = () => {
       setGameScreenshots(content.screenshots);
     }
 
-    console.log(id);
-
     getRelatedGames();
   }, [id, gameList]);
-  //pergar 3 jogos aleatorios de game List
 
   function getRelatedGames() {
     const quantityItem = 3;
@@ -70,10 +67,8 @@ const Product = () => {
     const relatedGames = randomIndexes.map((index) => gameList[index]);
 
     setRelatedGamesList(relatedGames);
-    console.log(relatedGamesList);
   }
 
-  console.log(id);
   return (
     <ContainerProduct ref={ref}>
       <Title>{gameContent && gameContent.title}</Title>

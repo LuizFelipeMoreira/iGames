@@ -13,7 +13,7 @@ export const ProductProvider = ({ children }) => {
     try {
       const response = await fetch(GameListApi);
       const { results } = await response.json();
-      console.log(results);
+      //console.log(results);
 
       const gamesFiltred = results.map((item) => {
         return {
@@ -29,7 +29,7 @@ export const ProductProvider = ({ children }) => {
           screenshots: item.short_screenshots,
         };
       });
-      console.log(gamesFiltred);
+      //console.log(gamesFiltred);
       setGameList(gamesFiltred);
     } catch (error) {
       console.log(error);

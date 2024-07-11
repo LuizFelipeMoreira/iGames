@@ -29,8 +29,6 @@ export const GameCard = ({
 }) => {
   const { error } = useProduct();
 
-  console.log(isActive);
-
   return (
     <Card>
       <CardImage src={image} alt="card image" />

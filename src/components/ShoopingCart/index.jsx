@@ -19,8 +19,6 @@ import { Link } from 'react-router-dom';
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
   const { productsBag, RemoveProduct } = useProduct();
 
-  console.log(productsBag);
-
   function calculateTotalPrice() {
     const totalPrice = productsBag.reduce((acc, product) => {
       const priceWithoutCurrencySymbol = product.price
@@ -42,7 +40,6 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
 
   function outsideClick(event) {
     if (event.target === event.currentTarget) {
-      console.log(event.currentTarget);
       setIsOpen(false);
     }
   }
