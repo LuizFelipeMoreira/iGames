@@ -15,6 +15,8 @@ import {
   CardInformation,
 } from '../styles/pages/Product';
 
+import { Title } from '../styles/pages/Product';
+
 import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -55,6 +57,7 @@ const Product = () => {
     getRelatedGames();
   }, [id, gameList]);
   //pergar 3 jogos aleatorios de game List
+
   function getRelatedGames() {
     const quantityItem = 3;
     const randomIndexes = [];
@@ -73,6 +76,7 @@ const Product = () => {
   console.log(id);
   return (
     <ContainerProduct ref={ref}>
+      <Title>{gameContent && gameContent.title}</Title>
       <Content>
         <WrapperSlide>
           <Swiper
@@ -102,14 +106,13 @@ const Product = () => {
           </Swiper>
         </WrapperSlide>
         <InformationGame>
-          <h1>{gameContent && gameContent.title}</h1>
-          <h3>{gameContent && gameContent.price}</h3>
           <Description>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
             aspernatur praesentium voluptatibus repellendus tempore? Sequi,
             eveniet suscipit nam est illum obcaecati quia deleniti. Perferendis
             facere deserunt aperiam reiciendis cumque voluptate.
           </Description>
+          <h1>{gameContent && gameContent.price}</h1>
           <ButtonAddToCart
             onClick={() => addNewProduct(gameContent)}
             disabled={loading}
@@ -128,9 +131,9 @@ const Product = () => {
         </InformationGame>
       </Content>
 
-      <h1>Sobre</h1>
+      <Title>Sobre</Title>
 
-      <p>
+      <Description>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi
         voluptates ratione eaque assumenda eveniet sint rem, quibusdam ab
         inventore maxime quia numquam, nihil aperiam quisquam minima? Tenetur
@@ -150,15 +153,10 @@ const Product = () => {
         Suscipit ab rerum nemo aliquam maiores. Vitae repellat quidem voluptatem
         numquam ut debitis enim cumque commodi quisquam nulla libero, quo minus
         exercitationem maxime ipsam adipisci veritatis autem, placeat veniam
-        velit. Voluptates sint quibusdam non corrupti nesciunt, perspiciatis
-        facilis quod facere natus mollitia commodi est. Quas, quae deleniti qui
-        cum cupiditate repudiandae neque aut voluptatum facere enim porro totam
-        perspiciatis dolorem.
-      </p>
+        velit.
+      </Description>
 
-      <h1 style={{ margin: '1.125rem', fontSize: '2.55rem' }}>
-        Conheça tambem:{' '}
-      </h1>
+      <Title>Conheça tambem: </Title>
 
       <div
         className="relacionados"

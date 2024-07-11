@@ -42,12 +42,12 @@ export const Tittle = styled.h1`
     background: #f0f0f0;
   }
 
-  @media (max-width: 920px) {
+  @media ${Theme.device.desktop} {
     font-size: 2.25rem;
   }
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media ${Theme.device.tablet} {
+    font-size: 1.625rem;
   }
 `;
 
