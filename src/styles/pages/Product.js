@@ -108,6 +108,14 @@ export const Description = styled.p`
   }
 `;
 
+export const CardContainer = styled.div`
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 0 auto;
+`;
+
 export const RelatedGameCard = styled.div`
   display: grid;
   max-width: 30%;

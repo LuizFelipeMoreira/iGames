@@ -13,6 +13,7 @@ import {
   WrapperSlide,
   ButtonGameCard,
   CardInformation,
+  CardContainer,
 } from '../styles/pages/Product';
 
 import { Title } from '../styles/pages/Product';
@@ -153,16 +154,7 @@ const Product = () => {
 
       <Title>Conheça tambem: </Title>
 
-      <div
-        className="relacionados"
-        style={{
-          maxWidth: '1170px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '25px',
-          margin: '0  auto',
-        }}
-      >
+      <CardContainer>
         {relatedGamesList &&
           relatedGamesList.map((item) => (
             <RelatedGameCard key={item.id}>
@@ -175,7 +167,7 @@ const Product = () => {
               </CardInformation>
             </RelatedGameCard>
           ))}
-      </div>
+      </CardContainer>
     </ContainerProduct>
   );
 };
