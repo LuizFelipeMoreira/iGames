@@ -111,9 +111,15 @@ export const Description = styled.p`
 export const CardContainer = styled.div`
   max-width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 25px;
   margin: 0 auto;
+
+  @media ${Theme.device.mobile} {
+    gap: 10px;
+    //max-width: 600px;
+    overflow-x: auto;
+  }
 `;
 
 export const RelatedGameCard = styled.div`
@@ -148,10 +154,14 @@ export const RelatedGameCard = styled.div`
     border-radius: 5px;
     object-fit: cover;
     grid-area: 1 / -1;
+
+    @media ${Theme.device.mobile} {
+      min-height: 350px;
+    }
   }
 
   @media ${Theme.device.mobile} {
-    aspect-ratio: 1/1;
+    min-width: 180px;
   }
 `;
 
