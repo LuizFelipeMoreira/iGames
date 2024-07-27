@@ -85,7 +85,9 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
             <PriceCheckout>{calculateTotalPrice()}</PriceCheckout>
           </div>
 
-          <ButtonCheckout>Finalizar</ButtonCheckout>
+          <ButtonCheckout onClick={() => setIsOpen(false)}>
+            <Link to="/checkout">Finalizar</Link>
+          </ButtonCheckout>
 
           <MessageCheckout>
             Complete sua compra e receba seus itens em breve !
