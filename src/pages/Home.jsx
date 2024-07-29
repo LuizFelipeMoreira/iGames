@@ -10,9 +10,9 @@ import { useProduct } from '../context/ProductContext';
 const Home = () => {
   const { gameList, fetchGames, addNewProduct, productsBag } = useProduct();
 
-  React.useEffect(() => {
-    if (gameList === null) fetchGames();
-  }, []);
+  // React.useEffect(() => {
+  //   if (gameList === null) fetchGames();
+  // }, []);
 
   function sendGame({ currentTarget }) {
     const id = Number(currentTarget.parentElement.id);

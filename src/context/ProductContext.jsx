@@ -61,8 +61,9 @@ export const ProductProvider = ({ children }) => {
   }
 
   React.useEffect(() => {
+    fetchGames();
     console.log(productsBag);
-  }, [productsBag]);
+  }, []);
 
   return (
     <ProductContext.Provider

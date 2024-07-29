@@ -83,11 +83,11 @@ export const ButtonAddToCart = styled.button`
 `;
 
 export const Title = styled.h1`
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   color: ${Theme.colors.black};
-  margin-top: 10px;
 
   @media ${Theme.device.tablet} {
+    margin-top: 20px;
     font-size: 2rem;
   }
 

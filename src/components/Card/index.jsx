@@ -27,7 +27,7 @@ export const GameCard = ({
   onClick,
   isActive,
 }) => {
-  const { error } = useProduct();
+  const { error, loading } = useProduct();
 
   return (
     <Card>
@@ -38,6 +38,7 @@ export const GameCard = ({
           <FaPlaystation /> <FaXbox /> <TiVendorAndroid /> <FaWindows />
           <p>{price}</p>
         </Link>
+
         <CardButton onClick={onClick}>
           {isActive ? (
             <>
