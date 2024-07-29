@@ -9,7 +9,7 @@ export const ProductProvider = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
 
-  async function fetchGames() {
+  const fetchGames = React.useCallback(async () => {
     try {
       const response = await fetch(GameListApi);
       const { results } = await response.json();
@@ -34,7 +34,7 @@ export const ProductProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-  }
+  }, []);
 
   function isProductAlreadyAdded(game) {
     return productsBag.some((item) => item.id === game.id);
