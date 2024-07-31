@@ -37,7 +37,8 @@ export const Item = styled.div`
 
   div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 5px;
     width: 100%;
   }
