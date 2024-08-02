@@ -17,26 +17,8 @@ import { useProduct } from '../../context/ProductContext';
 import { Link } from 'react-router-dom';
 
 const ShoopingCart = ({ isOpen, setIsOpen }) => {
-  const { productsBag, RemoveProduct } = useProduct();
-
-  function calculateTotalPrice() {
-    const totalPrice = productsBag.reduce((acc, product) => {
-      const priceWithoutCurrencySymbol = product.price
-        .replace(/[R$]/g, '')
-        .replace(',', '.');
-
-      const parsedPrice = parseFloat(priceWithoutCurrencySymbol);
-
-      return acc + parsedPrice;
-    }, 0);
-
-    const formattedPrice = totalPrice.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    });
-
-    return formattedPrice;
-  }
+  const { productsBag, RemoveProduct, calculateTotalPrice } = useProduct();
+  const TotalPrice = calculateTotalPrice();
 
   function outsideClick(event) {
     if (event.target === event.currentTarget) {
@@ -82,7 +64,7 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
           >
             <Tittle>Total: </Tittle>
 
-            <PriceCheckout>{calculateTotalPrice()}</PriceCheckout>
+            <PriceCheckout>{TotalPrice}</PriceCheckout>
           </div>
 
           <ButtonCheckout onClick={() => setIsOpen(false)}>

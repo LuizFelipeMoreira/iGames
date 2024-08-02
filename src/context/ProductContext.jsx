@@ -55,6 +55,25 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
+  function calculateTotalPrice() {
+    const totalPrice = productsBag.reduce((acc, product) => {
+      const priceWithoutCurrencySymbol = product.price
+        .replace(/[R$]/g, '')
+        .replace(',', '.');
+
+      const parsedPrice = parseFloat(priceWithoutCurrencySymbol);
+
+      return acc + parsedPrice;
+    }, 0);
+
+    const formattedPrice = totalPrice.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+
+    return formattedPrice;
+  }
+
   function RemoveProduct(id) {
     const productRemoved = productsBag.filter((item) => item.id !== id);
     setProdcutsBag(productRemoved);
@@ -72,6 +91,7 @@ export const ProductProvider = ({ children }) => {
         fetchGames,
         addNewProduct,
         RemoveProduct,
+        calculateTotalPrice,
         productsBag,
         loading,
         error,
