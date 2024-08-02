@@ -5,26 +5,31 @@ import {
   Item,
   SelectedItems,
   ShoopingArea,
+  ProuctSection,
+  TotalPrice,
 } from '../styles/pages/Checkout';
 
 const Checkout = () => {
-  const { productsBag } = useProduct();
+  const { productsBag, calculateTotalPrice } = useProduct();
 
   return (
     <Container>
-      <SelectedItems>
-        <h1>Checkout</h1>
-        {productsBag.map((item) => (
-          <Item key={item.id}>
-            <img src={item.image} alt={item.title} />
+      <ProuctSection>
+        <h1>Resumo do pedido: </h1>
+        <SelectedItems>
+          {productsBag.map((item) => (
+            <Item key={item.id}>
+              <img src={item.image} alt={item.title} />
 
-            <div>
-              <p>{item.title}</p>
-              <p>{item.price}</p>
-            </div>
-          </Item>
-        ))}
-      </SelectedItems>
+              <div>
+                <p>{item.title}</p>
+                <p>{item.price}</p>
+              </div>
+            </Item>
+          ))}
+        </SelectedItems>
+        <TotalPrice>Total: {calculateTotalPrice()}</TotalPrice>
+      </ProuctSection>
       <ShoopingArea></ShoopingArea>
     </Container>
   );
