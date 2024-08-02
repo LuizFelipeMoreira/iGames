@@ -135,7 +135,7 @@ export const PlataformItem = styled.li`
     font-size: ${Theme.Sizes.normal};
   }
 
-  @media (max-width: 768px) {
-    font-size: ${Theme.Sizes.small};
+  @media ${Theme.device.mobile} {
+    font-size: 0.625rem;
   }
 `;
