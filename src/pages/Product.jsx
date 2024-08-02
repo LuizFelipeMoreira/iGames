@@ -164,9 +164,9 @@ const Product = () => {
                   <img src={item.image} alt="" />
                   <CardInformation>
                     <GameTitle>{item.title}</GameTitle>
-                    <ButtonGameCard>
-                      <Link to={`/product/${item.id}`}>Ver mais</Link>
-                    </ButtonGameCard>
+                    <Link to={`/product/${item.id}`}>
+                      <ButtonGameCard>Ver mais</ButtonGameCard>
+                    </Link>
                   </CardInformation>
                 </RelatedGameCard>
               ))}
