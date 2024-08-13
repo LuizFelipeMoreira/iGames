@@ -98,9 +98,10 @@ export const Title = styled.h1`
 
 export const Description = styled.p`
   font-size: 1rem;
+  word-break: keep-all;
 
   @media ${Theme.device.tablet} {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   @media ${Theme.device.mobile} {

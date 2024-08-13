@@ -20,6 +20,7 @@ export const Container = styled.div`
 
 export const ProuctSection = styled.section`
   max-width: 500px;
+  background: ${Theme.colors.gray0};
 `;
 
 export const SelectedItems = styled.div`
@@ -56,8 +57,55 @@ export const Item = styled.div`
   }
 `;
 
-export const TotalPrice = styled.h3``;
+export const TotalPrice = styled.h5`
+  margin-top: 10px;
+`;
 
 export const ShoopingArea = styled.section``;
 
+export const WrapperText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+`;
+
 export const Payment = styled.div``;
+
+export const CreditCard = styled.div`
+  width: 400px;
+  height: 250px;
+  padding: 20px;
+  background: ${Theme.colors.black};
+  color: ${Theme.colors.white};
+  border-radius: 12px;
+
+  img {
+    width: 50px;
+  }
+`;
+
+export const CreditCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  div {
+    display: flex;
+    gap: 10px;
+  }
+`;
+
+export const CreditCardInfo = styled.div`
+  margin-top: 30px;
+  font-size: ${Theme.Sizes.medium};
+`;
+
+export const CreditCardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
