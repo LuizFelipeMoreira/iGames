@@ -15,7 +15,12 @@ import {
 import mastecard from '../assets/mastercard.png';
 import Chip from '../assets/chip.png';
 
-const Checkout = () => {
+import { Logo } from '../components/Header/styles';
+import { FaGamepad } from 'react-icons/fa6';
+
+import { Link, useLocation } from 'react-router-dom';
+
+const Checkout = ({ setIsCheckoutPage }) => {
   const [cardValues, setCardValues] = React.useState({
     cardName: '',
     cardNumber: '',
@@ -24,10 +29,25 @@ const Checkout = () => {
     cardCVC: '',
   });
   const { productsBag, calculateTotalPrice } = useProduct();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.pathname === '/checkout') setIsCheckoutPage(true);
+
+    return () => setIsCheckoutPage(false);
+  }, [location, setIsCheckoutPage]);
 
   return (
     <Container>
       <ShoopingArea>
+        <Link to="/">
+          <Logo>
+            {' '}
+            <FaGamepad />
+            iGames
+          </Logo>
+        </Link>
+
         <h1>Pagamento</h1>
         <CreditCard>
           <CreditCardHeader>

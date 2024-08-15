@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
@@ -11,17 +11,21 @@ import { Footer } from './components/Footer';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCheckoutPage, setIsCheckoutPage] = React.useState(false);
 
   return (
     <BrowserRouter>
       <ProductProvider>
-        <Header setIsOpen={setIsOpen} isOpen={isOpen} />
+        {!isCheckoutPage && <Header setIsOpen={setIsOpen} isOpen={isOpen} />}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="product/:id" element={<Product />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route
+            path="checkout"
+            element={<Checkout setIsCheckoutPage={setIsCheckoutPage} />}
+          />
         </Routes>
-        <Footer />
+        {!isCheckoutPage && <Footer />}
       </ProductProvider>
     </BrowserRouter>
   );

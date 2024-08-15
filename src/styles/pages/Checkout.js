@@ -5,8 +5,6 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 100%;
-  padding: 2rem 3rem;
-  margin: 0 auto;
   font-family: 'Poppins';
 
   @media ${Theme.device.tablet} {
