@@ -8,6 +8,9 @@ O projeto consiste em uma aplicação web para compra de jogos online. Os usuár
 
 ### Tecnologias Utilizadas
 
+
+
+
 <ul>
 <li>React</li>
 <li>React Router Dom</li>
