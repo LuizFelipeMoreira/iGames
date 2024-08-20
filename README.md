@@ -1,6 +1,8 @@
-                               # iGames
+# iGames
 
 Este é um projeto de front-end para um ecommerce de games desenvolvido utilizando React, React Router Dom e Styled Components.
+
+<img width="1440" alt="Captura de Tela 2024-08-20 às 20 18 11" src="https://github.com/user-attachments/assets/fb14140b-5bfb-42ea-add9-95cb9c08882f">
 
 ### Descrição
 
@@ -8,7 +10,6 @@ O projeto consiste em uma aplicação web para compra de jogos online. Os usuár
 
 ### Tecnologias Utilizadas
 
-<img width="1440" alt="Captura de Tela 2024-08-20 às 20 18 11" src="https://github.com/user-attachments/assets/fb14140b-5bfb-42ea-add9-95cb9c08882f">
 
 
 
