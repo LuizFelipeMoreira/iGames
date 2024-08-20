@@ -1,4 +1,6 @@
-# iGames
+<div align="center">
+  <h1>Projeto iGames</h1>
+</div>
 
 Este é um projeto de front-end para um ecommerce de games desenvolvido utilizando React, React Router Dom e Styled Components.
 
