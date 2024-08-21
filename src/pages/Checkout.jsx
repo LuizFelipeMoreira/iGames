@@ -8,10 +8,18 @@ import {
   ProuctSection,
   TotalPrice,
   WrapperText,
+  Field,
+  PaymentArea,
+  FormCard,
+} from '../styles/pages/Checkout';
+
+import {
   CreditCard,
   CreditCardHeader,
   CreditCardInfo,
+  CreditCardFooter,
 } from '../styles/pages/Checkout';
+
 import mastecard from '../assets/mastercard.png';
 import Chip from '../assets/chip.png';
 
@@ -49,32 +57,89 @@ const Checkout = ({ setIsCheckoutPage }) => {
         </Link>
 
         <h1>Pagamento</h1>
-        <CreditCard>
-          <CreditCardHeader>
-            <div>
-              <img src={mastecard} alt="" />
-              <p>Mastercard</p>
-            </div>
-            <img src={Chip} alt="" />
-          </CreditCardHeader>
+        <PaymentArea>
+          <CreditCard>
+            <CreditCardHeader>
+              <div>
+                <img src={mastecard} alt="" />
+                <p>Mastercard</p>
+              </div>
+              <img src={Chip} alt="" />
+            </CreditCardHeader>
 
-          <CreditCardInfo>
-            <p>Numero do cartao</p>
-            <p>0000 0000 0000 0000</p>
-          </CreditCardInfo>
+            <CreditCardInfo>
+              <span>Numero do cartao</span>
+              <p>0000 0000 0000 0000</p>
+            </CreditCardInfo>
 
-          <CreditCardInfo>
-            <div>
-              <p>Nome do proprietario</p>
-              <p>Felipe Moreira Lima</p>
-            </div>
+            <CreditCardFooter>
+              <div>
+                <span>Nome do proprietario</span>
+                <p>Felipe Moreira Lima</p>
+              </div>
 
-            <div>
-              <p>Validade</p>
-              <p>00/00</p>
-            </div>
-          </CreditCardInfo>
-        </CreditCard>
+              <div>
+                <span>Validade</span>
+                <p>00/00</p>
+              </div>
+            </CreditCardFooter>
+          </CreditCard>
+
+          <FormCard action="">
+            <Field className="colum1">
+              <label htmlFor="cardNumber">Numero do cartão</label>
+              <input
+                type="text"
+                name="cardNumber"
+                id="cardNumber"
+                value={cardValues.cardNumber}
+                onChange={(e) =>
+                  setCardValues({ ...cardValues, cardNumber: e.target.value })
+                }
+              />
+            </Field>
+
+            <Field>
+              <label htmlFor="cardName">Nome do proprietario</label>
+              <input
+                type="text"
+                name="cardName"
+                id="cardName"
+                value={cardValues.cardName}
+                onChange={(e) =>
+                  setCardValues({ ...cardValues, cardName: e.target.value })
+                }
+              />
+            </Field>
+
+            <Field>
+              <label htmlFor="cardMonth">Validade</label>
+              <input
+                type="text"
+                name="cardMonth"
+                id="cardMonth"
+                value={cardValues.cardMonth}
+                onChange={(e) =>
+                  setCardValues({ ...cardValues, cardMonth: e.target.value })
+                }
+              />
+            </Field>
+
+            <Field className="colum1">
+              <label htmlFor="cardCVC">CVC</label>
+              <input
+                type="text"
+                name="cardCVC"
+                id="cardCVC"
+                value={cardValues.cardCVC}
+                onChange={(e) =>
+                  setCardValues({ ...cardValues, cardCVC: e.target.value })
+                }
+              />
+            </Field>
+            <button className="colum1">Finalizar pedido</button>
+          </FormCard>
+        </PaymentArea>
       </ShoopingArea>
 
       <ProuctSection>

@@ -3,7 +3,7 @@ import Theme from '../../theme/Theme';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   max-width: 100%;
   font-family: 'Poppins';
 
@@ -17,8 +17,9 @@ export const Container = styled.div`
 `;
 
 export const ProuctSection = styled.section`
-  max-width: 500px;
   background: ${Theme.colors.gray0};
+  height: 100vh;
+  padding: 30px;
 `;
 
 export const SelectedItems = styled.div`
@@ -59,17 +60,26 @@ export const TotalPrice = styled.h5`
   margin-top: 10px;
 `;
 
-export const ShoopingArea = styled.section``;
+export const ShoopingArea = styled.section`
+  background-color: ${Theme.colors.white};
+  height: 100vh;
+  padding: 30px;
+`;
+
+export const PaymentArea = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 100%;
+`;
 
 export const WrapperText = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
-
-export const Payment = styled.div``;
 
 export const CreditCard = styled.div`
   width: 400px;
@@ -97,13 +107,59 @@ export const CreditCardHeader = styled.div`
 `;
 
 export const CreditCardInfo = styled.div`
-  margin-top: 30px;
+  margin: 30px 0;
   font-size: ${Theme.Sizes.medium};
+
+  span {
+    font-size: ${Theme.Sizes.small};
+  }
 `;
 
 export const CreditCardFooter = styled.div`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+
+  span {
+    font-size: ${Theme.Sizes.small};
+  }
+`;
+
+export const FormCard = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+
+  .colum1 {
+    grid-column: 1/-1;
+  }
+
+  .span2 {
+    grid-column: span 2;
+  }
+`;
+
+export const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  font-size: ${Theme.Sizes.small};
+  border: 3px solid #e0dfdf;
+  border-radius: 5px;
+  padding: 5px;
+
+  label {
+    font-weight: bold;
+    color: #e0dfdf;
+  }
+
+  input {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: ${Theme.Sizes.normal};
+  }
 `;
