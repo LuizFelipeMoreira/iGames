@@ -38,6 +38,13 @@ const Checkout = ({ setIsCheckoutPage }) => {
   });
   const { productsBag, calculateTotalPrice } = useProduct();
   const location = useLocation();
+  const [cardNumber, setCardNumber] = React.useState('');
+
+  const handleCardNumberChange = (event) => {
+    const input = event.target.value.replace(/\s+/g, ''); // Remove espaços existentes
+    const formattedInput = input.replace(/(\d{4})/g, ' ').trim(); // Adiciona um espaço a cada 4 dígitos
+    setCardNumber(formattedInput);
+  };
 
   React.useEffect(() => {
     if (location.pathname === '/checkout') setIsCheckoutPage(true);
@@ -69,7 +76,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
 
             <CreditCardInfo>
               <span>Numero do cartao</span>
-              <p>0000 0000 0000 0000</p>
+              <p>{cardNumber}</p>
             </CreditCardInfo>
 
             <CreditCardFooter>
@@ -92,10 +99,9 @@ const Checkout = ({ setIsCheckoutPage }) => {
                 type="text"
                 name="cardNumber"
                 id="cardNumber"
-                value={cardValues.cardNumber}
-                onChange={(e) =>
-                  setCardValues({ ...cardValues, cardNumber: e.target.value })
-                }
+                value={cardNumber}
+                maxLength={19}
+                onChange={handleCardNumberChange}
               />
             </Field>
 

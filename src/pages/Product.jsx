@@ -121,11 +121,11 @@ const Product = () => {
               {error && <p style={{ color: '#452CFF' }}>{error}</p>}
               <hr />
               <h4>Plataformas</h4>
-              <p>Xbox, Playstastion, nitendo, pc</p>
+              <Description>Xbox, Playstastion, nitendo, pc</Description>
               <h4>Generos</h4>
-              <p>Tiro, Acao, Aventura.</p>
+              <Description>Tiro, Acao, Aventura.</Description>
               <h4>Desenvolvedores</h4>
-              <p>Charles, Jhons Witc, Ferber Lyon</p>
+              <Description>Charles, Jhons Witc, Ferber Lyon</Description>
             </InformationGame>
           </Content>
 
