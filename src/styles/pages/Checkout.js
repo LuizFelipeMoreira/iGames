@@ -81,85 +81,24 @@ export const WrapperText = styled.div`
   margin-top: 10px;
 `;
 
-export const CreditCard = styled.div`
-  width: 400px;
-  height: 250px;
-  padding: 20px;
-  background: ${Theme.colors.black};
-  color: ${Theme.colors.white};
-  border-radius: 12px;
-
-  img {
-    width: 50px;
-  }
-`;
-
-export const CreditCardHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  div {
-    display: flex;
-    gap: 10px;
-  }
-`;
-
-export const CreditCardInfo = styled.div`
-  margin: 30px 0;
-  font-size: ${Theme.Sizes.medium};
-
-  span {
-    font-size: ${Theme.Sizes.small};
-  }
-`;
-
-export const CreditCardFooter = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
-  span {
-    font-size: ${Theme.Sizes.small};
-  }
-`;
-
-export const FormCard = styled.form`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-
-  .colum1 {
-    grid-column: 1/-1;
-  }
-
-  .span2 {
-    grid-column: span 2;
-  }
-`;
-
 export const Field = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  font-size: ${Theme.Sizes.small};
-  border: 3px solid #e0dfdf;
-  border-radius: 5px;
-  padding: 5px;
 
-  label {
-    font-weight: bold;
-    color: #e0dfdf;
+  img {
+    display: block;
+    max-width: 60%;
+    height: 40px;
   }
 
   input {
     padding: 5px;
     width: 100%;
-    border: none;
-    outline: none;
+    border: 1px solid #e0dfdf;
+    padding: 10px;
+    border-radius: 5px;
+    //outline: none;
     font-size: ${Theme.Sizes.normal};
   }
 `;

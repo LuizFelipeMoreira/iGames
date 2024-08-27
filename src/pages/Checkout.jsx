@@ -8,43 +8,23 @@ import {
   ProuctSection,
   TotalPrice,
   WrapperText,
-  Field,
   PaymentArea,
-  FormCard,
+  Field,
 } from '../styles/pages/Checkout';
-
-import {
-  CreditCard,
-  CreditCardHeader,
-  CreditCardInfo,
-  CreditCardFooter,
-} from '../styles/pages/Checkout';
-
-import mastecard from '../assets/mastercard.png';
-import Chip from '../assets/chip.png';
 
 import { Logo } from '../components/Header/styles';
+
+import { GiPadlock } from 'react-icons/gi';
 import { FaGamepad } from 'react-icons/fa6';
 
+import Cards from '../assets/imgcards.png';
+
 import { Link, useLocation } from 'react-router-dom';
+import { FieldCheckout } from '../components/FieldCheckout';
 
 const Checkout = ({ setIsCheckoutPage }) => {
-  const [cardValues, setCardValues] = React.useState({
-    cardName: '',
-    cardNumber: '',
-    cardMonth: '',
-    cardYear: '',
-    cardCVC: '',
-  });
   const { productsBag, calculateTotalPrice } = useProduct();
   const location = useLocation();
-  const [cardNumber, setCardNumber] = React.useState('');
-
-  const handleCardNumberChange = (event) => {
-    const input = event.target.value.replace(/\s+/g, ''); // Remove espaços existentes
-    const formattedInput = input.replace(/(\d{4})/g, ' ').trim(); // Adiciona um espaço a cada 4 dígitos
-    setCardNumber(formattedInput);
-  };
 
   React.useEffect(() => {
     if (location.pathname === '/checkout') setIsCheckoutPage(true);
@@ -63,88 +43,124 @@ const Checkout = ({ setIsCheckoutPage }) => {
           </Logo>
         </Link>
 
-        <h1>Pagamento</h1>
         <PaymentArea>
-          <CreditCard>
-            <CreditCardHeader>
-              <div>
-                <img src={mastecard} alt="" />
-                <p>Mastercard</p>
-              </div>
-              <img src={Chip} alt="" />
-            </CreditCardHeader>
+          <div>
+            <h3>Dados Pessoais</h3>
 
-            <CreditCardInfo>
-              <span>Numero do cartao</span>
-              <p>{cardNumber}</p>
-            </CreditCardInfo>
+            <FieldCheckout
+              label="Nome completo: "
+              name="name"
+              id="name"
+              placeholder="Digite seu nome"
+            />
 
-            <CreditCardFooter>
-              <div>
-                <span>Nome do proprietario</span>
-                <p>Felipe Moreira Lima</p>
-              </div>
+            <FieldCheckout
+              label="Email: "
+              name="email"
+              id="email"
+              placeholder="Digite seu email"
+            />
 
-              <div>
-                <span>Validade</span>
-                <p>00/00</p>
-              </div>
-            </CreditCardFooter>
-          </CreditCard>
+            <FieldCheckout
+              label="Endereço: "
+              name="address"
+              id="address"
+              placeholder="Digite seu endereço"
+            />
 
-          <FormCard action="">
-            <Field className="colum1">
-              <label htmlFor="cardNumber">Numero do cartão</label>
-              <input
-                type="text"
-                name="cardNumber"
-                id="cardNumber"
-                value={cardNumber}
-                maxLength={19}
-                onChange={handleCardNumberChange}
+            <FieldCheckout
+              label="Cidade: "
+              name="city"
+              id="city"
+              placeholder="Suzano - SP"
+            />
+
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <FieldCheckout
+                label="Estado: "
+                name="state"
+                id="state"
+                placeholder="Digite seu estado"
               />
-            </Field>
+
+              <FieldCheckout
+                label="CEP: "
+                name="cep"
+                id="cep"
+                maxLength={0}
+                placeholder="00000-000"
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3>Pagamento</h3>
 
             <Field>
-              <label htmlFor="cardName">Nome do proprietario</label>
-              <input
-                type="text"
-                name="cardName"
-                id="cardName"
-                value={cardValues.cardName}
-                onChange={(e) =>
-                  setCardValues({ ...cardValues, cardName: e.target.value })
-                }
-              />
+              <label htmlFor="name">Cartões aceitos: </label>
+              <img src={Cards} alt="" />
             </Field>
 
-            <Field>
-              <label htmlFor="cardMonth">Validade</label>
-              <input
-                type="text"
-                name="cardMonth"
-                id="cardMonth"
-                value={cardValues.cardMonth}
-                onChange={(e) =>
-                  setCardValues({ ...cardValues, cardMonth: e.target.value })
-                }
-              />
-            </Field>
+            <FieldCheckout
+              label="Nome no cartão: "
+              name="cardName"
+              id="cardName"
+              placeholder=""
+            />
 
-            <Field className="colum1">
-              <label htmlFor="cardCVC">CVC</label>
-              <input
-                type="text"
-                name="cardCVC"
-                id="cardCVC"
-                value={cardValues.cardCVC}
-                onChange={(e) =>
-                  setCardValues({ ...cardValues, cardCVC: e.target.value })
-                }
+            <FieldCheckout
+              label="Número do cartão: "
+              name="cardNumber"
+              id="cardNumber"
+              maxLength={19}
+              placeholder="0000 0000 0000 0000"
+            />
+
+            <FieldCheckout
+              label="Mês de validade: "
+              name="month"
+              id="month"
+              placeholder="Março"
+            />
+
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <FieldCheckout
+                label="Ano de validade: "
+                name="year"
+                id="year"
+                maxLength={4}
+                placeholder="2032"
               />
-            </Field>
-            <button className="colum1">Finalizar pedido</button>
-          </FormCard>
+
+              <FieldCheckout
+                label="CVV: "
+                name="cvv"
+                id="cvv"
+                maxLength={3}
+                placeholder="000"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            style={{
+              width: '70%',
+              gridColumn: 'span 2',
+              padding: '10px',
+              background: '#2bbe49',
+              color: '#fff',
+              margin: '0 auto',
+              borderRadius: '5px',
+              fontWeight: '500',
+              fontSize: '1.125rem',
+              cursor: 'pointer',
+              border: 'none',
+            }}
+          >
+            <GiPadlock />
+            Finalizar Compra
+          </button>
         </PaymentArea>
       </ShoopingArea>
 
