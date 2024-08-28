@@ -102,3 +102,16 @@ export const Field = styled.div`
     font-size: ${Theme.Sizes.normal};
   }
 `;
+
+export const CheckoutButton = styled.button`
+  width: 60%;
+  grid-column: span 2;
+  padding: 10px;
+  background: #2bbe49;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 50070;
+  font-size: 1.125rem;
+  cursor: pointer;
+  border: none;
+`;

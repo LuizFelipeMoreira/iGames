@@ -10,6 +10,7 @@ import {
   WrapperText,
   PaymentArea,
   Field,
+  CheckoutButton,
 } from '../styles/pages/Checkout';
 
 import { Logo } from '../components/Header/styles';
@@ -142,25 +143,22 @@ const Checkout = ({ setIsCheckoutPage }) => {
             </div>
           </div>
 
-          <button
-            type="submit"
+          <div
             style={{
-              width: '70%',
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+              alignItems: 'center',
               gridColumn: 'span 2',
-              padding: '10px',
-              background: '#2bbe49',
-              color: '#fff',
-              margin: '0 auto',
-              borderRadius: '5px',
-              fontWeight: '500',
-              fontSize: '1.125rem',
-              cursor: 'pointer',
-              border: 'none',
             }}
           >
-            <GiPadlock />
-            Finalizar Compra
-          </button>
+            <Link to="/">Voltar para Home</Link>
+
+            <CheckoutButton type="submit">
+              <GiPadlock />
+              Finalizar Compra
+            </CheckoutButton>
+          </div>
         </PaymentArea>
       </ShoopingArea>
 
