@@ -9,7 +9,6 @@ import {
   TotalPrice,
   WrapperText,
   PaymentArea,
-  Field,
   CheckoutButton,
 } from '../styles/pages/Checkout';
 
@@ -17,11 +16,13 @@ import { Logo } from '../components/Header/styles';
 
 import { GiPadlock } from 'react-icons/gi';
 import { FaGamepad } from 'react-icons/fa6';
+import { FaChevronLeft } from 'react-icons/fa';
 
 import Cards from '../assets/imgcards.png';
 
 import { Link, useLocation } from 'react-router-dom';
 import { FieldCheckout } from '../components/FieldCheckout';
+import { Field } from '../components/FieldCheckout/styles';
 
 const Checkout = ({ setIsCheckoutPage }) => {
   const { productsBag, calculateTotalPrice } = useProduct();
@@ -37,7 +38,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
     <Container>
       <ShoopingArea>
         <Link to="/">
-          <Logo>
+          <Logo style={{ marginBottom: '20px', textAlign: 'center' }}>
             {' '}
             <FaGamepad />
             iGames
@@ -46,7 +47,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
 
         <PaymentArea>
           <div>
-            <h3>Dados Pessoais</h3>
+            <h2>Dados Pessoais</h2>
 
             <FieldCheckout
               label="Nome completo: "
@@ -76,7 +77,13 @@ const Checkout = ({ setIsCheckoutPage }) => {
               placeholder="Suzano - SP"
             />
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '10px',
+              }}
+            >
               <FieldCheckout
                 label="Estado: "
                 name="state"
@@ -95,7 +102,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
           </div>
 
           <div>
-            <h3>Pagamento</h3>
+            <h2>Pagamento</h2>
 
             <Field>
               <label htmlFor="name">Cartões aceitos: </label>
@@ -124,7 +131,13 @@ const Checkout = ({ setIsCheckoutPage }) => {
               placeholder="Março"
             />
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '10px',
+              }}
+            >
               <FieldCheckout
                 label="Ano de validade: "
                 name="year"
@@ -145,14 +158,20 @@ const Checkout = ({ setIsCheckoutPage }) => {
 
           <div
             style={{
-              display: 'flex',
+              display: 'grid',
               width: '100%',
               justifyContent: 'space-between',
               alignItems: 'center',
               gridColumn: 'span 2',
+              marginTop: '20px',
             }}
           >
-            <Link to="/">Voltar para Home</Link>
+            <Link
+              to="/"
+              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+            >
+              <FaChevronLeft /> Voltar para Home
+            </Link>
 
             <CheckoutButton type="submit">
               <GiPadlock />
@@ -163,37 +182,38 @@ const Checkout = ({ setIsCheckoutPage }) => {
       </ShoopingArea>
 
       <ProuctSection>
-        <h1>Resumo do pedido: </h1>
-        <SelectedItems>
-          {productsBag.map((item) => (
-            <Item key={item.id}>
-              <img src={item.image} alt={item.title} />
+        <div style={{ maxWidth: '500px' }}>
+          <h1>Resumo do pedido: </h1>
+          <SelectedItems>
+            {productsBag.map((item) => (
+              <Item key={item.id}>
+                <img src={item.image} alt={item.title} />
 
-              <div>
-                <p>{item.title}</p>
-                <p>{item.price}</p>
-              </div>
-            </Item>
-          ))}
-        </SelectedItems>
-        <hr />
+                <div>
+                  <p>{item.title}</p>
+                  <p>{item.price}</p>
+                </div>
+              </Item>
+            ))}
+          </SelectedItems>
 
-        <WrapperText>
-          <p>Quantidade de itens: </p>
-          <TotalPrice>{productsBag.length}</TotalPrice>
-        </WrapperText>
+          <hr />
 
-        <WrapperText>
-          <p>Sub-total:</p>
-          <TotalPrice>{calculateTotalPrice()}</TotalPrice>
-        </WrapperText>
+          <WrapperText>
+            <p>Quantidade de itens: </p>
+            <TotalPrice>{productsBag.length}</TotalPrice>
+          </WrapperText>
 
-        <hr />
+          <WrapperText>
+            <p>Sub-total:</p>
+            <TotalPrice>{calculateTotalPrice()}</TotalPrice>
+          </WrapperText>
 
-        <WrapperText>
-          <p>Total</p>
-          <h3>{calculateTotalPrice()}</h3>
-        </WrapperText>
+          <WrapperText>
+            <p>Total</p>
+            <h3>{calculateTotalPrice()}</h3>
+          </WrapperText>
+        </div>
       </ProuctSection>
     </Container>
   );

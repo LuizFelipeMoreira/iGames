@@ -3,7 +3,7 @@ import Theme from '../../theme/Theme';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   max-width: 100%;
   font-family: 'Poppins';
 
@@ -35,8 +35,7 @@ export const Item = styled.div`
   gap: 10px;
   align-items: center;
   padding: 5px;
-  // border-bottom: 1px solid gray;
-  font-size: 0.875rem;
+  font-size: 1rem;
 
   div {
     display: flex;
@@ -49,7 +48,7 @@ export const Item = styled.div`
   img {
     display: block;
     max-width: 100%;
-    max-height: 50px;
+    max-height: 60px;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 5px;
@@ -61,16 +60,24 @@ export const TotalPrice = styled.h5`
 `;
 
 export const ShoopingArea = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
   background-color: ${Theme.colors.white};
   height: 100vh;
   padding: 30px;
 `;
 
 export const PaymentArea = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 100%;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  min-width: 700px;
+  justify-items: end;
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const WrapperText = styled.div`
@@ -79,28 +86,6 @@ export const WrapperText = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 10px;
-`;
-
-export const Field = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-
-  img {
-    display: block;
-    max-width: 60%;
-    height: 40px;
-  }
-
-  input {
-    padding: 5px;
-    width: 100%;
-    border: 1px solid #e0dfdf;
-    padding: 10px;
-    border-radius: 5px;
-    //outline: none;
-    font-size: ${Theme.Sizes.normal};
-  }
 `;
 
 export const CheckoutButton = styled.button`
@@ -114,4 +99,9 @@ export const CheckoutButton = styled.button`
   font-size: 1.125rem;
   cursor: pointer;
   border: none;
+  transition: 0.3s;
+
+  &:hover {
+    background: #26a840;
+  }
 `;

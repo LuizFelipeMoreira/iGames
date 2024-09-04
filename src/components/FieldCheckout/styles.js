@@ -15,10 +15,9 @@ export const Field = styled.div`
   input {
     padding: 5px;
     width: 100%;
-    border: 1px solid #e0dfdf;
-    padding: 10px;
+    border: 2px solid #e0dfdf;
+    padding: 12px;
     border-radius: 5px;
-    //outline: none;
-    font-size: ${Theme.Sizes.normal};
+    font-size: ${Theme.Sizes.medium};
   }
 `;
