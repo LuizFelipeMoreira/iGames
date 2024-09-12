@@ -31,10 +31,11 @@ export const HeaderContent = styled.div`
 export const Logo = styled.h1`
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 10px;
   text-decoration: none;
   font-size: 2.25rem;
-  font-weight: bold;
+  font-weight: 800;
 
   a {
     text-decoration: none;

@@ -38,7 +38,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
     <Container>
       <ShoopingArea>
         <Link to="/">
-          <Logo style={{ marginBottom: '20px', textAlign: 'center' }}>
+          <Logo style={{ margin: 'auto', textAlign: 'center' }}>
             {' '}
             <FaGamepad />
             iGames
@@ -95,7 +95,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
                 label="CEP: "
                 name="cep"
                 id="cep"
-                maxLength={0}
+                maxLength={9}
                 placeholder="00000-000"
               />
             </div>
@@ -158,17 +158,19 @@ const Checkout = ({ setIsCheckoutPage }) => {
 
           <div
             style={{
-              display: 'grid',
-              width: '100%',
-              justifyContent: 'space-between',
+              display: 'flex',
               alignItems: 'center',
-              gridColumn: 'span 2',
-              marginTop: '20px',
+              justifyContent: 'space-between',
+              margin: '20px 0 40px 0',
             }}
           >
             <Link
               to="/"
-              style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+              }}
             >
               <FaChevronLeft /> Voltar para Home
             </Link>

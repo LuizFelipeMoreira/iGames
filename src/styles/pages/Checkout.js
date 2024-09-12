@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 100%;
+  min-height: 100vh;
   font-family: 'Poppins';
 
   @media ${Theme.device.tablet} {
@@ -17,9 +18,12 @@ export const Container = styled.div`
 `;
 
 export const ProuctSection = styled.section`
-  background: ${Theme.colors.gray0};
+  position: fixed;
+  width: 50%;
   height: 100vh;
+  right: 0;
   padding: 30px;
+  background: ${Theme.colors.gray0};
 `;
 
 export const SelectedItems = styled.div`
@@ -71,7 +75,7 @@ export const ShoopingArea = styled.section`
 export const PaymentArea = styled.div`
   /* display: grid;
   grid-template-columns: 1fr 1fr; */
-  min-width: 700px;
+  min-width: 600px;
   justify-items: end;
 
   div {
