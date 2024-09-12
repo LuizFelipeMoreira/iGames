@@ -11,6 +11,7 @@ export const FieldCheckout = ({ label, id, name, placeholder, maxLength }) => {
         id={id}
         placeholder={placeholder}
         maxLength={maxLength}
+        required
       />
     </Field>
   );
