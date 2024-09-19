@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Checkout from './pages/Checkout';
-import Product from './pages/Product';
+import { Home } from './pages/Home';
+import { Checkout } from './pages/Checkout';
+import { Product } from './pages/Product';
 
 import { ProductProvider } from './context/ProductContext';
 import { Header } from './components/Header';

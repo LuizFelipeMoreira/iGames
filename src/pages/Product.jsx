@@ -32,7 +32,7 @@ import { useProduct } from '../context/ProductContext';
 
 register();
 
-const Product = () => {
+export const Product = () => {
   const [gameContent, setGameContent] = React.useState(null);
   const [gameScreenshots, setGameScreenshots] = React.useState([]);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
@@ -176,5 +176,3 @@ const Product = () => {
     </>
   );
 };
-
-export default Product;

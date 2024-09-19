@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../theme/Theme';
+import Theme from '../../Theme/Theme';
 
 export const Container = styled.div`
   display: grid;
@@ -9,6 +9,7 @@ export const Container = styled.div`
   font-family: 'Poppins';
 
   @media ${Theme.device.tablet} {
+    grid-template-columns: 1fr;
     padding: 10px;
   }
 
@@ -24,6 +25,13 @@ export const ProuctSection = styled.section`
   right: 0;
   padding: 30px;
   background: ${Theme.colors.gray0};
+
+  @media ${Theme.device.tablet} {
+    top: 80;
+    width: 100%;
+    height: max-content;
+    visibility: hidden;
+  }
 `;
 
 export const SelectedItems = styled.div`
@@ -70,17 +78,21 @@ export const ShoopingArea = styled.section`
   background-color: ${Theme.colors.white};
   height: 100vh;
   padding: 30px;
+
+  @media ${Theme.device.tablet} {
+    justify-self: center;
+  }
+
+  @media ${Theme.device.mobile} {
+    padding: 0px;
+  }
 `;
 
 export const PaymentArea = styled.div`
-  /* display: grid;
-  grid-template-columns: 1fr 1fr; */
-  min-width: 600px;
-  justify-items: end;
+  width: 600px;
 
-  div {
-    display: grid;
-    grid-template-columns: 1fr;
+  @media ${Theme.device.mobile} {
+    width: 100%;
   }
 `;
 
@@ -107,5 +119,25 @@ export const CheckoutButton = styled.button`
 
   &:hover {
     background: #26a840;
+  }
+`;
+
+export const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+
+  img {
+    display: block;
+    max-width: 60%;
+    height: 40px;
+  }
+
+  input {
+    width: 100%;
+    border: 2px solid #e0dfdf;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: ${Theme.Sizes.medium};
   }
 `;

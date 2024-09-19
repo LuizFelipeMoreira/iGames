@@ -7,7 +7,7 @@ import { Container, Content, TitleWrapper, Tittle } from '../styles/pages/Home';
 
 import { useProduct } from '../context/ProductContext';
 
-const Home = () => {
+export const Home = () => {
   const { gameList, fetchGames, addNewProduct, productsBag } = useProduct();
 
   // React.useEffect(() => {
@@ -54,5 +54,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

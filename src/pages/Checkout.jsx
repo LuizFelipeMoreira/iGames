@@ -10,21 +10,20 @@ import {
   WrapperText,
   PaymentArea,
   CheckoutButton,
+  Field,
 } from '../styles/pages/Checkout';
 
 import { Logo } from '../components/Header/styles';
+
+import Cards from '../assets/imgcards.png';
 
 import { GiPadlock } from 'react-icons/gi';
 import { FaGamepad } from 'react-icons/fa6';
 import { FaChevronLeft } from 'react-icons/fa';
 
-import Cards from '../assets/imgcards.png';
-
 import { Link, useLocation } from 'react-router-dom';
-import { FieldCheckout } from '../components/FieldCheckout';
-import { Field } from '../components/FieldCheckout/styles';
 
-const Checkout = ({ setIsCheckoutPage }) => {
+export const Checkout = ({ setIsCheckoutPage }) => {
   const { productsBag, calculateTotalPrice } = useProduct();
   const location = useLocation();
 
@@ -113,7 +112,7 @@ const Checkout = ({ setIsCheckoutPage }) => {
               label="Nome no cartão: "
               name="cardName"
               id="cardName"
-              placeholder=""
+              placeholder="Insira seu nome no cartão"
             />
 
             <FieldCheckout
@@ -221,4 +220,17 @@ const Checkout = ({ setIsCheckoutPage }) => {
   );
 };
 
-export default Checkout;
+const FieldCheckout = ({ label, id, name, placeholder, maxLength }) => {
+  return (
+    <Field>
+      <label htmlFor={id}>{label}</label>
+      <input
+        type="text"
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        maxLength={maxLength}
+      />
+    </Field>
+  );
+};
