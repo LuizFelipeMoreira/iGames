@@ -60,7 +60,7 @@ export const Item = styled.div`
   img {
     display: block;
     max-width: 100%;
-    max-height: 60px;
+    max-height: 50px;
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 5px;
@@ -76,6 +76,7 @@ export const ShoopingArea = styled.section`
   flex-direction: column;
   justify-self: end;
   background-color: ${Theme.colors.white};
+  min-width: 50%;
   height: 100vh;
   padding: 30px;
 

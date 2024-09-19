@@ -112,7 +112,7 @@ export const Checkout = ({ setIsCheckoutPage }) => {
               label="Nome no cartão: "
               name="cardName"
               id="cardName"
-              placeholder="Insira seu nome no cartão"
+              placeholder="Insira o nome impresso no cartão"
             />
 
             <FieldCheckout
