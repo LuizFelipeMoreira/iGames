@@ -20,11 +20,11 @@ const ShoopingCart = ({ isOpen, setIsOpen }) => {
   const { productsBag, RemoveProduct, calculateTotalPrice } = useProduct();
   const TotalPrice = calculateTotalPrice();
 
-  function outsideClick(event) {
+  const outsideClick = (event) => {
     if (event.target === event.currentTarget) {
       setIsOpen(false);
     }
-  }
+  };
 
   return (
     <ContainerBag open={isOpen} onClick={outsideClick}>

@@ -54,7 +54,7 @@ export const Product = () => {
     }
   }, [id, gameList]);
 
-  function getRelatedGames() {
+  const getRelatedGames = () => {
     const quantityItem = 3;
     const randomIndexes = [];
 
@@ -66,7 +66,7 @@ export const Product = () => {
     const relatedGames = randomIndexes.map((index) => gameList[index]);
 
     setRelatedGamesList(relatedGames);
-  }
+  };
 
   return (
     <>

@@ -14,16 +14,16 @@ export const Home = () => {
   //   if (gameList === null) fetchGames();
   // }, []);
 
-  function sendGame({ currentTarget }) {
+  const sendGame = ({ currentTarget }) => {
     const id = Number(currentTarget.parentElement.id);
     const clickedGame = gameList.find((item) => item.id === id);
 
     addNewProduct(clickedGame);
-  }
+  };
 
-  function includesInBag(game) {
+  const includesInBag = (game) => {
     return productsBag.some((item) => item.id === game.id);
-  }
+  };
 
   return (
     <>

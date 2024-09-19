@@ -36,11 +36,11 @@ export const ProductProvider = ({ children }) => {
     }
   }, []);
 
-  function isProductAlreadyAdded(game) {
+  const isProductAlreadyAdded = (game) => {
     return productsBag.some((item) => item.id === game.id);
-  }
+  };
 
-  function addNewProduct(game) {
+  const addNewProduct = (game) => {
     if (!isProductAlreadyAdded(game)) {
       setLoading(true);
       const newProductsBag = [...productsBag, game];
@@ -53,9 +53,9 @@ export const ProductProvider = ({ children }) => {
       setError('Este item ja  foi adicionado');
       setTimeout(() => setError(null), 800);
     }
-  }
+  };
 
-  function calculateTotalPrice() {
+  const calculateTotalPrice = () => {
     const totalPrice = productsBag.reduce((acc, product) => {
       const priceWithoutCurrencySymbol = product.price
         .replace(/[R$]/g, '')
@@ -72,12 +72,12 @@ export const ProductProvider = ({ children }) => {
     });
 
     return formattedPrice;
-  }
+  };
 
-  function RemoveProduct(id) {
+  const RemoveProduct = (id) => {
     const productRemoved = productsBag.filter((item) => item.id !== id);
     setProdcutsBag(productRemoved);
-  }
+  };
 
   React.useEffect(() => {
     fetchGames();
