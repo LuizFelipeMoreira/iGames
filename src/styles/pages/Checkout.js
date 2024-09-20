@@ -25,12 +25,12 @@ export const ProuctSection = styled.section`
   right: 0;
   padding: 30px;
   background: ${Theme.colors.gray0};
+  border: 1px solid #dfdfdf;
 
   @media ${Theme.device.tablet} {
     top: 80;
     width: 100%;
     height: max-content;
-    visibility: hidden;
   }
 `;
 
