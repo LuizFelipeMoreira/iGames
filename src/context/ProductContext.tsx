@@ -74,7 +74,7 @@ export const ProductProvider = ({ children }) => {
     return formattedPrice;
   };
 
-  const RemoveProduct = (id) => {
+  const RemoveProduct = (id: number) => {
     const productRemoved = productsBag.filter((item) => item.id !== id);
     setProdcutsBag(productRemoved);
   };
