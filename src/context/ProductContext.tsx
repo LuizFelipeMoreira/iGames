@@ -1,19 +1,23 @@
 import React from 'react';
 import { GameListApi } from '../api/api';
 
-export const ProductContext = React.createContext();
+import { IGameType } from '../types/IGameType';
+import { UseProductTYpe } from '../types/UseProductProps';
+import { Response } from '../types/IGameResponse';
+
+export const ProductContext = React.createContext({});
 
 export const ProductProvider = ({ children }) => {
-  const [gameList, setGameList] = React.useState(null);
-  const [productsBag, setProdcutsBag] = React.useState([]);
+  const [gameList, setGameList] = React.useState<IGameType[]>([]);
+  const [productsBag, setProdcutsBag] = React.useState<IGameType[]>([]);
+
   const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<string | null>(null);
 
   const fetchGames = React.useCallback(async () => {
     try {
       const response = await fetch(GameListApi);
-      const { results } = await response.json();
-      console.log(results);
+      const { results }: Response = await response.json();
 
       const gamesFiltred = results.map((item) => {
         return {
@@ -29,18 +33,18 @@ export const ProductProvider = ({ children }) => {
           screenshots: item.short_screenshots,
         };
       });
-      //console.log(gamesFiltred);
+
       setGameList(gamesFiltred);
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  const isProductAlreadyAdded = (game) => {
+  const isProductAlreadyAdded = (game: IGameType) => {
     return productsBag.some((item) => item.id === game.id);
   };
 
-  const addNewProduct = (game) => {
+  const addNewProduct = (game: IGameType) => {
     if (!isProductAlreadyAdded(game)) {
       setLoading(true);
       const newProductsBag = [...productsBag, game];
@@ -102,4 +106,5 @@ export const ProductProvider = ({ children }) => {
   );
 };
 
-export const useProduct = () => React.useContext(ProductContext);
+export const useProduct = () =>
+  React.useContext(ProductContext) as UseProductTYpe;

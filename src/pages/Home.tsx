@@ -6,13 +6,10 @@ import { GameCard } from '../components/Card';
 import { Container, Content, TitleWrapper, Tittle } from '../styles/pages/Home';
 
 import { useProduct } from '../context/ProductContext';
+import { IGameType } from '../types/IGameType';
 
 export const Home = () => {
-  const { gameList, fetchGames, addNewProduct, productsBag } = useProduct();
-
-  // React.useEffect(() => {
-  //   if (gameList === null) fetchGames();
-  // }, []);
+  const { gameList, addNewProduct, productsBag } = useProduct();
 
   const sendGame = ({ currentTarget }) => {
     const id = Number(currentTarget.parentElement.id);
@@ -21,7 +18,7 @@ export const Home = () => {
     addNewProduct(clickedGame);
   };
 
-  const includesInBag = (game) => {
+  const includesInBag = (game: IGameType) => {
     return productsBag.some((item) => item.id === game.id);
   };
 

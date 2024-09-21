@@ -29,16 +29,19 @@ import 'swiper/css/scrollbar';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 
 import { useProduct } from '../context/ProductContext';
+import { IGameType } from '../types/IGameType';
 
 register();
 
 export const Product = () => {
-  const [gameContent, setGameContent] = React.useState(null);
+  const [gameContent, setGameContent] = React.useState<IGameType>();
   const [gameScreenshots, setGameScreenshots] = React.useState([]);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   const { gameList, addNewProduct, loading, fetchGames, error } = useProduct();
-  const [relatedGamesList, setRelatedGamesList] = React.useState([]);
-  const ref = React.useRef(null);
+  const [relatedGamesList, setRelatedGamesList] = React.useState<IGameType[]>(
+    []
+  );
+  const ref = React.useRef<HTMLDivElement>(null);
   const { id } = useParams();
 
   React.useEffect(() => {
@@ -46,17 +49,20 @@ export const Product = () => {
 
     if (gameList !== null) {
       const content = gameList.find((item) => item.id === Number(id));
-      setGameContent(content);
-      setGameScreenshots(content.screenshots);
 
-      ref.current.scrollIntoView();
+      if (content) {
+        setGameContent(content);
+        setGameScreenshots(content.screenshots);
+      }
+
+      ref.current?.scrollIntoView();
       getRelatedGames();
     }
   }, [id, gameList]);
 
   const getRelatedGames = () => {
     const quantityItem = 3;
-    const randomIndexes = [];
+    const randomIndexes: number[] = [];
 
     while (randomIndexes.length < quantityItem) {
       let randomIndex = Math.floor(Math.random() * gameList.length);

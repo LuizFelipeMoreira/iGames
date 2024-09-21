@@ -23,7 +23,11 @@ import { FaChevronLeft } from 'react-icons/fa';
 
 import { Link, useLocation } from 'react-router-dom';
 
-export const Checkout = ({ setIsCheckoutPage }) => {
+interface CheckoutProps {
+  setIsCheckoutPage: (arg: boolean) => void;
+}
+
+export const Checkout = ({ setIsCheckoutPage }: CheckoutProps) => {
   const { productsBag, calculateTotalPrice } = useProduct();
   const location = useLocation();
 
@@ -222,14 +226,28 @@ export const Checkout = ({ setIsCheckoutPage }) => {
   );
 };
 
-const FieldCheckout = ({ label, id, name, placeholder, maxLength }) => {
+interface FieldChckoutProps {
+  label: string;
+  name: string;
+  id: string;
+  placeholder: string;
+  maxLength?: number;
+}
+
+const FieldCheckout = ({
+  label,
+  id,
+  name,
+  placeholder,
+  maxLength,
+}: FieldChckoutProps) => {
   return (
     <Field>
       <label htmlFor={id}>{label}</label>
       <input
         type="text"
         name={name}
-        id={id}
+        id={name}
         placeholder={placeholder}
         maxLength={maxLength}
       />
