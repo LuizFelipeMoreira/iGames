@@ -10,27 +10,38 @@ export const Container = styled.div`
 
   @media ${Theme.device.tablet} {
     grid-template-columns: 1fr;
-    padding: 10px;
+    //adding: 10px;
   }
 
   @media ${Theme.device.mobile} {
-    padding: 0 1rem;
+    //padding: 0 1rem;
   }
 `;
 
 export const ProuctSection = styled.section`
   position: fixed;
+  right: 0;
   width: 50%;
   height: 100vh;
-  right: 0;
-  padding: 30px;
+  padding: 20px;
   background: ${Theme.colors.gray0};
   border: 1px solid #dfdfdf;
 
   @media ${Theme.device.tablet} {
-    top: 80;
+    position: initial;
     width: 100%;
     height: max-content;
+    overflow-y: hidden;
+  }
+
+  div {
+    width: 500px;
+    margin: 0 auto;
+
+    @media ${Theme.device.mobile} {
+      width: 100%;
+      margin: 0;
+    }
   }
 `;
 
@@ -65,6 +76,10 @@ export const Item = styled.div`
     object-fit: cover;
     border-radius: 5px;
   }
+
+  @media ${Theme.device.mobile} {
+    font-size: 0.875rem;
+  }
 `;
 
 export const TotalPrice = styled.h5`
@@ -85,12 +100,16 @@ export const ShoopingArea = styled.section`
   }
 
   @media ${Theme.device.mobile} {
-    padding: 0px;
+    padding: 20px;
   }
 `;
 
-export const PaymentArea = styled.div`
+export const PaymentForm = styled.div`
   width: 600px;
+
+  @media ${Theme.device.desktop} {
+    width: 100%;
+  }
 
   @media ${Theme.device.mobile} {
     width: 100%;

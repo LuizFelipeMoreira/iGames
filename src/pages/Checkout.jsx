@@ -8,7 +8,7 @@ import {
   ProuctSection,
   TotalPrice,
   WrapperText,
-  PaymentArea,
+  PaymentForm,
   CheckoutButton,
   Field,
 } from '../styles/pages/Checkout';
@@ -35,6 +35,43 @@ export const Checkout = ({ setIsCheckoutPage }) => {
 
   return (
     <Container>
+      <ProuctSection>
+        <div>
+          <div>
+            <h1>Resumo do pedido: </h1>
+          </div>
+          <SelectedItems>
+            {productsBag.map((item) => (
+              <Item key={item.id}>
+                <img src={item.image} alt={item.title} />
+
+                <div>
+                  <p>{item.title}</p>
+                  <p>{item.price}</p>
+                </div>
+              </Item>
+            ))}
+          </SelectedItems>
+
+          <hr />
+
+          <WrapperText>
+            <p>Quantidade de itens: </p>
+            <TotalPrice>{productsBag.length}</TotalPrice>
+          </WrapperText>
+
+          <WrapperText>
+            <p>Sub-total:</p>
+            <TotalPrice>{calculateTotalPrice()}</TotalPrice>
+          </WrapperText>
+
+          <WrapperText>
+            <p>Total</p>
+            <h3>{calculateTotalPrice()}</h3>
+          </WrapperText>
+        </div>
+      </ProuctSection>
+
       <ShoopingArea>
         <Link to="/">
           <Logo style={{ margin: 'auto', textAlign: 'center' }}>
@@ -44,7 +81,7 @@ export const Checkout = ({ setIsCheckoutPage }) => {
           </Logo>
         </Link>
 
-        <PaymentArea>
+        <PaymentForm>
           <div>
             <h2>Dados Pessoais</h2>
 
@@ -179,43 +216,8 @@ export const Checkout = ({ setIsCheckoutPage }) => {
               Finalizar Compra
             </CheckoutButton>
           </div>
-        </PaymentArea>
+        </PaymentForm>
       </ShoopingArea>
-
-      <ProuctSection>
-        <div style={{ maxWidth: '500px' }}>
-          <h1>Resumo do pedido: </h1>
-          <SelectedItems>
-            {productsBag.map((item) => (
-              <Item key={item.id}>
-                <img src={item.image} alt={item.title} />
-
-                <div>
-                  <p>{item.title}</p>
-                  <p>{item.price}</p>
-                </div>
-              </Item>
-            ))}
-          </SelectedItems>
-
-          <hr />
-
-          <WrapperText>
-            <p>Quantidade de itens: </p>
-            <TotalPrice>{productsBag.length}</TotalPrice>
-          </WrapperText>
-
-          <WrapperText>
-            <p>Sub-total:</p>
-            <TotalPrice>{calculateTotalPrice()}</TotalPrice>
-          </WrapperText>
-
-          <WrapperText>
-            <p>Total</p>
-            <h3>{calculateTotalPrice()}</h3>
-          </WrapperText>
-        </div>
-      </ProuctSection>
     </Container>
   );
 };
