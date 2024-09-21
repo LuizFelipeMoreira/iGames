@@ -7,7 +7,7 @@ import {
   CardImage,
   CardTittle,
   Rating,
-} from './style';
+} from './Style';
 
 import { FaXbox } from 'react-icons/fa';
 import { FaPlaystation } from 'react-icons/fa';
