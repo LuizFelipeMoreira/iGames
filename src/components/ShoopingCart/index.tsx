@@ -10,7 +10,7 @@ import {
   MessageCheckout,
   PriceCheckout,
   BagItem,
-} from './style';
+} from './styles';
 
 import { IoMdClose } from 'react-icons/io';
 import { useProduct } from '../../context/ProductContext';
