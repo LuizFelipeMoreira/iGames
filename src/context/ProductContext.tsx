@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GameListApi } from '../api/api';
 
 import { IGameType } from '../types/IGameType';
@@ -7,12 +7,16 @@ import { Response } from '../types/IGameResponse';
 
 export const ProductContext = React.createContext({});
 
-export const ProductProvider = ({ children }) => {
-  const [gameList, setGameList] = React.useState<IGameType[]>([]);
-  const [productsBag, setProdcutsBag] = React.useState<IGameType[]>([]);
+interface ProductProviderProps {
+  children: React.ReactNode;
+}
 
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState<string | null>(null);
+export const ProductProvider = ({ children }:ProductProviderProps) => {
+  const [gameList, setGameList] = useState<IGameType[]>([]);
+  const [productsBag, setProdcutsBag] = useState<IGameType[]>([]);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchGames = React.useCallback(async () => {
     try {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import {
@@ -20,7 +20,7 @@ import { Title } from '../styles/pages/Product';
 
 import { register } from 'swiper/element/bundle';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -29,18 +29,21 @@ import 'swiper/css/scrollbar';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 
 import { useProduct } from '../context/ProductContext';
+
 import { IGameType } from '../types/IGameType';
+import { ShortScreenshot } from '../types/IGameResponse';
 
 register();
 
 export const Product = () => {
-  const [gameContent, setGameContent] = React.useState<IGameType>();
-  const [gameScreenshots, setGameScreenshots] = React.useState([]);
-  const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
+  const [gameContent, setGameContent] = useState<IGameType>();
   const { gameList, addNewProduct, loading, fetchGames, error } = useProduct();
-  const [relatedGamesList, setRelatedGamesList] = React.useState<IGameType[]>(
-    []
-  );
+
+  const [gameScreenshots, setGameScreenshots] = useState<ShortScreenshot[]>([]);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+  const [relatedGamesList, setRelatedGamesList] = useState<IGameType[]>([]);
+
   const ref = React.useRef<HTMLDivElement>(null);
   const { id } = useParams();
 
