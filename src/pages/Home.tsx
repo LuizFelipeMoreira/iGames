@@ -15,7 +15,7 @@ export const Home = () => {
     const id = Number(currentTarget.parentElement.id);
     const clickedGame = gameList.find((item) => item.id === id);
 
-    addNewProduct(clickedGame);
+    if (clickedGame) addNewProduct(clickedGame);
   };
 
   const includesInBag = (game: IGameType) => {
