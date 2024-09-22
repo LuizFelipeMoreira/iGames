@@ -6,9 +6,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { SlideItem } from './styles';
 
+import { IGameType } from '../../types/IGameType';
+
 register();
 
-export const Slide = ({ gameList }) => {
+interface SlideProps {
+  gameList: IGameType[];
+}
+
+export const Slide = ({ gameList }: SlideProps) => {
   return (
     <div>
       <Swiper
@@ -25,7 +31,7 @@ export const Slide = ({ gameList }) => {
         {gameList.map((item) => (
           <SwiperSlide key={item.id}>
             <SlideItem src={item.image} alt="" />
-            <h2>{item.name}</h2>
+            {/* <h2>{item.title}</h2> */}
           </SwiperSlide>
         ))}
       </Swiper>

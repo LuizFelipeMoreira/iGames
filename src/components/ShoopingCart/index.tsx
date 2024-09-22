@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import {
   ContainerBag,
   BagContent,
@@ -16,18 +16,23 @@ import { IoMdClose } from 'react-icons/io';
 import { useProduct } from '../../context/ProductContext';
 import { Link } from 'react-router-dom';
 
-const ShoopingCart = ({ isOpen, setIsOpen }) => {
+interface SohoopingCartProps {
+  isOpen?: boolean;
+  setIsOpen: (arg: boolean) => void;
+}
+
+const ShoopingCart = ({ setIsOpen }: SohoopingCartProps) => {
   const { productsBag, RemoveProduct, calculateTotalPrice } = useProduct();
   const TotalPrice = calculateTotalPrice();
 
-  const outsideClick = (event) => {
+  const outsideClick = (event: MouseEvent) => {
     if (event.target === event.currentTarget) {
       setIsOpen(false);
     }
   };
 
   return (
-    <ContainerBag open={isOpen} onClick={outsideClick}>
+    <ContainerBag onClick={outsideClick}>
       <BagContent>
         <BagHeader>
           <Tittle>Carrinho de Compras</Tittle>

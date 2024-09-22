@@ -20,7 +20,12 @@ import ShoppingCart from '../ShoopingCart';
 import { Link } from 'react-router-dom';
 import { useProduct } from '../../context/ProductContext';
 
-export const Header = ({ isOpen, setIsOpen }) => {
+interface HeaderProps {
+  isOpen: boolean;
+  setIsOpen: (arg: boolean) => void;
+}
+
+export const Header = ({ isOpen, setIsOpen }: HeaderProps) => {
   const { productsBag } = useProduct();
   const plataforms = ['PC', 'Xbox', 'PlayStation', 'Nitendo', 'IOS', 'Android'];
 

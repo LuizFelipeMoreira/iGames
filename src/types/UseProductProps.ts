@@ -8,5 +8,5 @@ export interface UseProductTYpe {
   error: string;
   fetchGames: () => Promise<IGameType[]>;
   addNewProduct: (game: IGameType) => void;
-  RemoveProduct: (game: IGameType) => void;
+  RemoveProduct: (id: number) => void;
 }
