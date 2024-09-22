@@ -2,7 +2,7 @@ import { IGameType } from './IGameType';
 
 export interface UseProductTYpe {
   gameList: IGameType[];
-  calculateTotalPrice: string;
+  calculateTotalPrice: () => string;
   productsBag: IGameType[];
   loading: boolean;
   error: string;
