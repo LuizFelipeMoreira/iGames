@@ -79,7 +79,7 @@ export const Product = () => {
 
   return (
     <>
-      {gameList && (
+      {gameList && gameContent && (
         <ContainerProduct ref={ref}>
           <Title>{gameContent && gameContent.title}</Title>
           <Content>

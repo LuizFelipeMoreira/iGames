@@ -11,7 +11,9 @@ import { IGameType } from '../types/IGameType';
 export const Home = () => {
   const { gameList, addNewProduct, productsBag } = useProduct();
 
-  const sendGame = ({ currentTarget }) => {
+  const sendGame = ({ currentTarget }: { currentTarget: HTMLElement }) => {
+    if (!currentTarget.parentElement) return;
+
     const id = Number(currentTarget.parentElement.id);
     const clickedGame = gameList.find((item) => item.id === id);
 
