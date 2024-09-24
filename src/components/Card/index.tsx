@@ -15,7 +15,7 @@ interface PropsGameCard {
   title: string;
   rating: number;
   price: string;
-  onClick: () => void;
+  onClick: ({ currentTarget }: { currentTarget: HTMLElement }) => void;
   isActive: boolean;
 }
 
