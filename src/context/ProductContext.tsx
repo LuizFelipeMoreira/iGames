@@ -11,7 +11,7 @@ interface ProductProviderProps {
   children: React.ReactNode;
 }
 
-export const ProductProvider = ({ children }:ProductProviderProps) => {
+export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [gameList, setGameList] = useState<IGameType[]>([]);
   const [productsBag, setProdcutsBag] = useState<IGameType[]>([]);
 
