@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../theme/Theme';
+import Theme from '../../themes/Theme';
 
 export const FooterBackground = styled.footer`
   width: 100%;

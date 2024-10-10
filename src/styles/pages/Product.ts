@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../theme/Theme';
+import Theme from '../../themes/Theme';
 
 export const ContainerProduct = styled.div`
   max-width: 100%;

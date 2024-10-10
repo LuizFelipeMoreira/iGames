@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../theme/Theme';
+import Theme from '../../themes/Theme';
 
 export const Card = styled.div`
   border: 1px solid ${Theme.colors.Purple};

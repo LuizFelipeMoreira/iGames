@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Theme from '../../Theme/Theme';
+import Theme from '../../themes/Theme';
 
 export const SlideItem = styled.img`
   width: 100%;
